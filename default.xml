@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
 
-  <remote name="weftspun" fetch="https://github.com/weftspun" />
+  <remote name="weftspun" fetch="https://github.com/v-sekai-fabric" />
   <remote name="sinew-mocap" fetch="https://github.com/sinew-mocap" />
   <remote name="v-sekai-fabric" fetch="https://github.com/v-sekai-fabric" />
   <remote name="v-sekai" fetch="https://github.com/v-sekai" />
