@@ -158,6 +158,6 @@
   <project name="libriscv" path="3-interactor/entities-godot-sandbox/modules/sandbox/thirdparty/libriscv"
            remote="v-sekai-fabric" revision="2b681b996992d91ee7da0d228d0e5935b42bb879" />
   <project name="game-module" path="3-interactor/entities-godot-sandbox/modules/game"
-           remote="v-sekai-fabric" revision="d12fb6c547262e0908f8eb55b4ebece419f944e4" />
+           remote="v-sekai-fabric" revision="dfdafef8aa64f83f34897b3c987e904fbdf470b1" />
 
 </manifest>
