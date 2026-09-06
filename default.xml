@@ -160,6 +160,6 @@
   <project name="game-module" path="3-interactor/entities-godot-sandbox/modules/game"
            remote="v-sekai-fabric" revision="dfdafef8aa64f83f34897b3c987e904fbdf470b1" />
   <project name="crossbuild-fedora" path="crossbuild-fedora"
-           remote="v-sekai-fabric" revision="ff0d64a5b42677dffb76f3e16311ae747c533d24" />
+           remote="v-sekai-fabric" revision="1fc1fc8c376de4081ad5ea6bf127c4dfede8003a" />
 
 </manifest>
