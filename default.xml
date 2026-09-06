@@ -70,8 +70,8 @@
   <project name="trellis2-ex" path="3-interactor/trellis2-ex" remote="weftspun" revision="main" />
   <project name="interactor-trellis2-image-mesh-painting" path="3-interactor/trellis2-image-mesh-painting" remote="weftspun" revision="main" />
   <project name="interactor-trellis2-image-to-textured-mesh" path="3-interactor/trellis2-image-to-textured-mesh" remote="weftspun" revision="main" />
-  <project name="trellis2cpp" path="3-interactor/trellis2cpp" remote="weftspun" revision="main" />
-  <project name="ggml" path="3-interactor/trellis2cpp/ggml" remote="weftspun" revision="eee2d470eeabf32cef50c494b2c6fc1f6931f617" />
+  <project name="pixal3d.cpp" path="3-interactor/pixal3d.cpp" remote="weftspun" revision="main" />
+  <project name="ggml" path="3-interactor/pixal3d.cpp/ggml" remote="weftspun" revision="eee2d470eeabf32cef50c494b2c6fc1f6931f617" />
   <project name="ggml" path="3-interactor/ggml-seethrough" remote="weftspun" revision="eee2d470eeabf32cef50c494b2c6fc1f6931f617" />
   <project name="ggml" path="2-contract/ggml" remote="weftspun" revision="weftspun-consolidated" />
   <project name="ufbx-to-openusd" path="3-interactor/ufbx-to-openusd" remote="weftspun" revision="main" />
