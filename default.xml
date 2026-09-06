@@ -165,4 +165,9 @@
   <project name="crossbuild-fedora" path="crossbuild-fedora"
            remote="v-sekai-fabric" revision="1fc1fc8c376de4081ad5ea6bf127c4dfede8003a" />
 
+  <project name="sd-ggml" path="3-interactor/stable-diffusion.cpp/ggml" remote="v-sekai-fabric" revision="e20c3a14aa70ee84ca58499814206dd08d8026bc" />
+  <project name="sdcpp-webui" path="3-interactor/stable-diffusion.cpp/examples/server/frontend" remote="v-sekai-fabric" revision="c4bce3d6b3f236614cca21014f076083b7270ba8" />
+  <project name="sd-libwebp" path="3-interactor/stable-diffusion.cpp/thirdparty/libwebp" remote="v-sekai-fabric" revision="0c9546f7efc61eac7f79ae115c3f99c91c21c443" />
+  <project name="sd-libwebm" path="3-interactor/stable-diffusion.cpp/thirdparty/libwebm" remote="v-sekai-fabric" revision="5bf12267eea773a32fcf4949de52b0add158a8d5" />
+
 </manifest>
