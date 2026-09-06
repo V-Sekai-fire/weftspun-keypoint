@@ -9,6 +9,7 @@
   <remote name="ftxui" fetch="https://github.com/ArthurSonzogni" />
   <remote name="huggingface" fetch="https://huggingface.co" />
   <remote name="huggingface-datasets" fetch="https://huggingface.co/datasets" />
+  <remote name="SarahWeiii" fetch="https://github.com/SarahWeiii" />
   <remote name="taskweft" fetch="https://github.com/taskweft" />
   <remote name="v-sekai-fire" fetch="https://github.com/V-Sekai-fire" />
   <remote name="maifoundations" fetch="https://github.com/maifoundations" />
@@ -33,6 +34,7 @@
   <project name="interactor-kimodo-text-to-motion" path="3-interactor/kimodo-text-to-motion" remote="weftspun" revision="main" />
   <project name="interactor-skintokens-auto-rig" path="3-interactor/skintokens-auto-rig" remote="weftspun" revision="main" />
   <project name="skin-tokens.cpp" path="3-interactor/skin-tokens-cpp" remote="weftspun" revision="main" />
+  <project name="CoACD" path="3-interactor/coacd-upstream" remote="SarahWeiii" revision="1401ce2a7ae1ed89c65ab958b48d489350c233c7" />
   <project name="motion-bricks.cpp" path="3-interactor/motion-bricks-cpp" remote="weftspun" revision="main" />
   <project name="entities-godot" path="3-interactor/entities-godot-sandbox" remote="v-sekai-fabric" revision="feat/vsk-sandbox-4.7" />
   <project name="turboquant-godot" path="3-interactor/turboquant-godot" remote="v-sekai-fire" revision="feat/turboquant-on-master" />
