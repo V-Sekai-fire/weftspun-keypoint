@@ -72,6 +72,7 @@
   <project name="interactor-trellis2-image-to-textured-mesh" path="3-interactor/trellis2-image-to-textured-mesh" remote="weftspun" revision="main" />
   <project name="stable-diffusion.cpp" path="3-interactor/stable-diffusion.cpp" remote="weftspun" revision="master" />
   <project name="pixal3d.cpp" path="3-interactor/pixal3d.cpp" remote="weftspun" revision="main" />
+  <project name="kimodo.cpp" path="3-interactor/kimodo.cpp" remote="weftspun" revision="main" />
   <project name="ggml" path="3-interactor/pixal3d.cpp/ggml" remote="weftspun" revision="eee2d470eeabf32cef50c494b2c6fc1f6931f617" />
   <project name="ggml" path="3-interactor/ggml-seethrough" remote="weftspun" revision="eee2d470eeabf32cef50c494b2c6fc1f6931f617" />
   <project name="ggml" path="2-contract/ggml" remote="weftspun" revision="weftspun-consolidated" />
