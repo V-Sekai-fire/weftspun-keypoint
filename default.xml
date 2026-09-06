@@ -106,6 +106,7 @@
     <linkfile src="rfd/2172-tenseless-continuous-present-voice/README.md" dest=".claude/skills/rfd-2172-tenseless-continuous-present-voice.md" />
     <linkfile src="rfd/2177-flight-levels-taxonomy/README.md" dest=".claude/skills/rfd-2177-flight-levels-taxonomy.md" />
   </project>
+  <project name="plausible-witness-dag" path="2-contract/plausible-witness-dag" remote="weftspun" revision="main" />
   <project name="lean-deform-exact" path="2-contract/lean-deform-exact" remote="weftspun" revision="main" />
   <project name="tensor-copy-cost-model" path="2-contract/tensor-copy-cost-model" remote="weftspun" revision="main" />
   <project name="trellis2-mesh-vae-slang" path="2-contract/trellis2-mesh-vae-slang" remote="weftspun" revision="main" />
