@@ -73,8 +73,8 @@
   <project name="stable-diffusion.cpp" path="3-interactor/stable-diffusion.cpp" remote="weftspun" revision="master" />
   <project name="pixal3d.cpp" path="3-interactor/pixal3d.cpp" remote="weftspun" revision="main" />
   <project name="kimodo.cpp" path="3-interactor/kimodo.cpp" remote="weftspun" revision="main" />
-  <project name="ggml" path="3-interactor/pixal3d.cpp/ggml" remote="weftspun" revision="eee2d470eeabf32cef50c494b2c6fc1f6931f617" />
-  <project name="ggml" path="3-interactor/ggml-seethrough" remote="weftspun" revision="eee2d470eeabf32cef50c494b2c6fc1f6931f617" />
+  <project name="ggml" path="3-interactor/pixal3d.cpp/ggml" remote="weftspun" revision="d646939ac1167441f6b50feafb7fac11dfe864cd" />
+  <project name="ggml" path="3-interactor/ggml-seethrough" remote="weftspun" revision="d646939ac1167441f6b50feafb7fac11dfe864cd" />
   <project name="ggml" path="2-contract/ggml" remote="weftspun" revision="weftspun-consolidated" />
   <project name="ufbx-to-openusd" path="3-interactor/ufbx-to-openusd" remote="weftspun" revision="main" />
   <project name="unified-modal-embedder" path="3-interactor/unified-modal-embedder" remote="weftspun" revision="main" />
@@ -172,7 +172,7 @@
   <project name="weftspun-agreements" path="2-contract/weftspun-agreements" remote="weftspun" revision="f11d2e515c0aed579ca1a3731748955164d4f8dc">
     <linkfile src="CLAUDE.md" dest="CLAUDE.md" />
   </project>
-  <project name="ggml" path="3-interactor/motion-bricks-cpp/ggml" remote="weftspun" revision="eee2d470eeabf32cef50c494b2c6fc1f6931f617" />
-  <project name="ggml" path="3-interactor/skin-tokens-cpp/ggml" remote="weftspun" revision="eee2d470eeabf32cef50c494b2c6fc1f6931f617" />
+  <project name="ggml" path="3-interactor/motion-bricks-cpp/ggml" remote="weftspun" revision="d646939ac1167441f6b50feafb7fac11dfe864cd" />
+  <project name="ggml" path="3-interactor/skin-tokens-cpp/ggml" remote="weftspun" revision="d646939ac1167441f6b50feafb7fac11dfe864cd" />
   <project name="libeigen-eigen" path="3-interactor/trellis2-upstream/o-voxel/third_party/eigen" remote="weftspun" revision="21e4582d1739107337a03460c81412981130373e" />
 </manifest>
