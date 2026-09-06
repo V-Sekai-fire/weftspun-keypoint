@@ -175,4 +175,5 @@
   <project name="ggml" path="3-interactor/motion-bricks-cpp/ggml" remote="weftspun" revision="d646939ac1167441f6b50feafb7fac11dfe864cd" />
   <project name="ggml" path="3-interactor/skin-tokens-cpp/ggml" remote="weftspun" revision="d646939ac1167441f6b50feafb7fac11dfe864cd" />
   <project name="libeigen-eigen" path="3-interactor/trellis2-upstream/o-voxel/third_party/eigen" remote="weftspun" revision="21e4582d1739107337a03460c81412981130373e" />
+  <project name="vast-market-snapshots" path="0-datasource/vast-market-snapshots" remote="weftspun" revision="84913a7d190083a9f4060437e8091d35b7c40fdc" />
 </manifest>
