@@ -83,12 +83,12 @@
   <project name="ufbx-to-openusd" path="3-interactor/ufbx-to-openusd" remote="weftspun" revision="main" />
   <project name="unified-modal-embedder" path="3-interactor/unified-modal-embedder" remote="weftspun" revision="main" />
   <project name="interactor-voxhammer-image-mesh-editing" path="3-interactor/voxhammer-image-mesh-editing" remote="weftspun" revision="main" />
-  <project name="VoxHammer" path="3-interactor/voxhammer-upstream" remote="weftspun" revision="f33cd965388faf4bd89252068cac5a0b8030e7de" />
+  <project name="VoxHammer" path="3-interactor/voxhammer-upstream" remote="weftspun" revision="cb049b4c4b0b9a76b44b996bb5ba31ef70b796bf" />
   <project name="Wan2.1" path="3-interactor/wan-vace-upstream" remote="weftspun" revision="9737cba9c1c3c4d04b33fcad41c111989865d315" />
   <project name="Pixal3D" path="3-interactor/pixal3d-upstream" remote="weftspun" revision="cdbb2bbffbf4e6f298b5f2af3d1d76a8d823d2af" />
   <project name="MoGe" path="3-interactor/moge-upstream" remote="weftspun" revision="74fbce054ebed49800de42d0ad0e83495065719a" />
   <project name="lingbot-map" path="3-interactor/lingbot-map-upstream" remote="weftspun" revision="1740f18ead3cca8e0e07dd0ec6b7030d22f0894c" />
-  <project name="udon2godot" path="3-interactor/udon2godot" remote="weftspun" revision="10c57e0a259f5d080cc638faa253ff92e9632efb" />
+  <project name="udon2godot" path="3-interactor/udon2godot" remote="weftspun" revision="ca8c62bcaa7f8d6e9cd2a42de5eb35c55a98b1d5" />
   <project name="TRELLIS.2" path="3-interactor/trellis2-upstream" remote="weftspun" revision="75fbf0183001ed9876c8dbb35de6b68552ee08bd" />
   <project name="llama-cpp-npu-vision" path="3-interactor/llama-cpp-npu-vision-upstream" remote="weftspun" revision="d75e441df25d7b783fda089755de8101ed1b9426" />
   <project name="interactor-voxhammer-text-mesh-editing" path="3-interactor/voxhammer-text-mesh-editing" remote="weftspun" revision="main" />
@@ -123,6 +123,7 @@
   <project name="hailo_model_zoo" path="5-repository/hailo-model-zoo" remote="weftspun" revision="refs/tags/keypoint/v0.1.0-dev.1" />
   <project name="chibifire/anny-camera-lora" path="5-repository/anny-camera-lora" remote="huggingface" revision="main" />
   <project name="chibifire/omnigen2-base-df5dca8a" path="5-repository/omnigen2-base-df5dca8a" remote="huggingface" revision="main" />
+  <project name="LocalAI-io/MotionBricks-G1-GGML" path="5-repository/motionbricks-g1-ggml" remote="huggingface" revision="cc2a47603dbc203a4f18f35dd06ed3611833f506" />
   <project name="anny-render-corpus" path="6-datasource/anny-render-corpus" remote="weftspun" revision="main" />
   <project name="anny-soma-corpus" path="6-datasource/anny-soma-corpus" remote="weftspun" revision="main" />
   <project name="versitygw-local" path="6-datasource/versitygw-local" remote="weftspun" revision="main" />
@@ -149,6 +150,9 @@
   </project>
   <project name="chibifire/anny-render-corpus-train" path="6-datasource/anny-render-corpus-constructed" remote="huggingface-datasets" revision="main" />
   <project name="chibifire/anny-render-corpus-generated-train" path="6-datasource/anny-render-corpus-generated" remote="huggingface-datasets" revision="main" />
+  <project name="chibifire/zenodo-second-hand-fashion-v3" path="6-datasource/zenodo-second-hand-fashion-v3" remote="huggingface-datasets" revision="main" />
+  <project name="chibifire/starforged-std-3001-appendix-e" path="6-datasource/starforged-std-3001-appendix-e" remote="huggingface-datasets" revision="main" />
+  <project name="chibifire/anny-dress-on-stage-train" path="6-datasource/anny-dress-on-stage-train" remote="huggingface-datasets" revision="main" />
   <project name="weft-warp-burrito" path="7-service/weft-warp-burrito" remote="weftspun" revision="main" />
   <project name="service-cineform" path="7-service/service-cineform" remote="weftspun" revision="main" />
   <project name="service-livebook" path="7-service/service-livebook" remote="weftspun" revision="main" />
@@ -165,7 +169,7 @@
            remote="ftxui" revision="182ef70cd4dc1109d06e66361a9da86445928578" />
 
   <project name="godot-sandbox" path="3-interactor/entities-godot-sandbox/modules/sandbox"
-           remote="v-sekai-fabric" revision="51853e964bba7bb2e0bd621acac3c409954c0d24" />
+           remote="v-sekai-fabric" revision="06a749b03823eb656437f8a2a95b69f917c75cf0" />
   <project name="libriscv" path="3-interactor/entities-godot-sandbox/modules/sandbox/thirdparty/libriscv"
            remote="v-sekai-fabric" revision="2b681b996992d91ee7da0d228d0e5935b42bb879" />
   <project name="game-module" path="3-interactor/entities-godot-sandbox/modules/game"
