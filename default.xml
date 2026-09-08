@@ -88,7 +88,7 @@
   <project name="Pixal3D" path="3-interactor/pixal3d-upstream" remote="weftspun" revision="cdbb2bbffbf4e6f298b5f2af3d1d76a8d823d2af" />
   <project name="MoGe" path="3-interactor/moge-upstream" remote="weftspun" revision="74fbce054ebed49800de42d0ad0e83495065719a" />
   <project name="lingbot-map" path="3-interactor/lingbot-map-upstream" remote="weftspun" revision="1740f18ead3cca8e0e07dd0ec6b7030d22f0894c" />
-  <project name="udon2godot" path="3-interactor/udon2godot" remote="weftspun" revision="10c57e0a259f5d080cc638faa253ff92e9632efb" />
+  <project name="udon2godot" path="3-interactor/udon2godot" remote="weftspun" revision="ca8c62bcaa7f8d6e9cd2a42de5eb35c55a98b1d5" />
   <project name="TRELLIS.2" path="3-interactor/trellis2-upstream" remote="weftspun" revision="75fbf0183001ed9876c8dbb35de6b68552ee08bd" />
   <project name="llama-cpp-npu-vision" path="3-interactor/llama-cpp-npu-vision-upstream" remote="weftspun" revision="d75e441df25d7b783fda089755de8101ed1b9426" />
   <project name="interactor-voxhammer-text-mesh-editing" path="3-interactor/voxhammer-text-mesh-editing" remote="weftspun" revision="main" />
@@ -169,7 +169,7 @@
            remote="ftxui" revision="182ef70cd4dc1109d06e66361a9da86445928578" />
 
   <project name="godot-sandbox" path="3-interactor/entities-godot-sandbox/modules/sandbox"
-           remote="v-sekai-fabric" revision="51853e964bba7bb2e0bd621acac3c409954c0d24" />
+           remote="v-sekai-fabric" revision="06a749b03823eb656437f8a2a95b69f917c75cf0" />
   <project name="libriscv" path="3-interactor/entities-godot-sandbox/modules/sandbox/thirdparty/libriscv"
            remote="v-sekai-fabric" revision="2b681b996992d91ee7da0d228d0e5935b42bb879" />
   <project name="game-module" path="3-interactor/entities-godot-sandbox/modules/game"
