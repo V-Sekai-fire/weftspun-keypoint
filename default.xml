@@ -88,6 +88,7 @@
   <project name="Pixal3D" path="3-interactor/pixal3d-upstream" remote="weftspun" revision="cdbb2bbffbf4e6f298b5f2af3d1d76a8d823d2af" />
   <project name="MoGe" path="3-interactor/moge-upstream" remote="weftspun" revision="74fbce054ebed49800de42d0ad0e83495065719a" />
   <project name="lingbot-map" path="3-interactor/lingbot-map-upstream" remote="weftspun" revision="1740f18ead3cca8e0e07dd0ec6b7030d22f0894c" />
+  <project name="udon2godot" path="3-interactor/udon2godot" remote="weftspun" revision="10c57e0a259f5d080cc638faa253ff92e9632efb" />
   <project name="TRELLIS.2" path="3-interactor/trellis2-upstream" remote="weftspun" revision="75fbf0183001ed9876c8dbb35de6b68552ee08bd" />
   <project name="llama-cpp-npu-vision" path="3-interactor/llama-cpp-npu-vision-upstream" remote="weftspun" revision="d75e441df25d7b783fda089755de8101ed1b9426" />
   <project name="interactor-voxhammer-text-mesh-editing" path="3-interactor/voxhammer-text-mesh-editing" remote="weftspun" revision="main" />
