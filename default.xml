@@ -23,10 +23,7 @@
   <project name="transport-cineform-tui" path="1-transport/transport-cineform-tui" remote="weftspun" revision="main" />
   <project name="transport-shepherd" path="1-transport/transport-shepherd" remote="weftspun" revision="main" />
   <project name="ex_mcp" path="1-transport/ex-mcp" remote="weftspun" revision="main" />
-  <project name="transport-taskweft-acp" path="1-transport/transport-taskweft-acp" remote="weftspun" revision="main">
-    <linkfile src="../../6-datasource/store/fdb_vfs.c" dest="thirdparty/store/fdb_vfs.c" />
-    <linkfile src="../../6-datasource/store/fdb_keys.h" dest="thirdparty/store/fdb_keys.h" />
-  </project>
+  <project name="transport-taskweft-acp" path="1-transport/transport-taskweft-acp" remote="weftspun" revision="main" />
   <project name="usd-viewer" path="1-transport/usd-viewer" remote="weftspun" revision="main" />
   <project name="weftspun-usd-viewer" path="1-transport/weftspun-usd-viewer" remote="weftspun" revision="main" />
   <project name="hm08-partition" path="2-contract/hm08-partition" remote="weftspun" revision="main" />
@@ -143,6 +140,10 @@
               dest="7-service/service-bao-sqlite-fdb/thirdparty/store/fdb_vfs.c" />
     <linkfile src="fdb_keys.h"
               dest="7-service/service-bao-sqlite-fdb/thirdparty/store/fdb_keys.h" />
+    <linkfile src="fdb_vfs.c"
+              dest="1-transport/transport-taskweft-acp/thirdparty/store/fdb_vfs.c" />
+    <linkfile src="fdb_keys.h"
+              dest="1-transport/transport-taskweft-acp/thirdparty/store/fdb_keys.h" />
   </project>
   <project name="chibifire/anny-render-corpus-train" path="6-datasource/anny-render-corpus-constructed" remote="huggingface-datasets" revision="main" />
   <project name="chibifire/anny-render-corpus-generated-train" path="6-datasource/anny-render-corpus-generated" remote="huggingface-datasets" revision="main" />
