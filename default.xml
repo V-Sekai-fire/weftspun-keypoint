@@ -80,9 +80,6 @@
   <project name="kimodo.cpp" path="3-interactor/kimodo.cpp" remote="weftspun" revision="main" />
   <project name="ggml" path="3-interactor/pixal3d.cpp/ggml" remote="weftspun" revision="d646939ac1167441f6b50feafb7fac11dfe864cd" />
   <project name="ggml" path="3-interactor/ggml-seethrough" remote="weftspun" revision="d646939ac1167441f6b50feafb7fac11dfe864cd" />
-  <!-- The vector engine RFD 2240 names for animated markup. The engine fork vendors
-       1.0.3 with only the SVG and raster loaders; this is the same release with the
-       Lottie loader, placed once so a consumer builds against one copy. MIT. -->
   <project name="thorvg" path="2-contract/thorvg" remote="thorvg"
            revision="d114cd9e3c32d7f77bc9b324ae5c71d7775cb7ae" />
   <project name="ggml" path="2-contract/ggml" remote="weftspun" revision="weftspun-consolidated" />
