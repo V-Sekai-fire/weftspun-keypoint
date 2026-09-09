@@ -1,0 +1,9 @@
+version 0.80.0
+source https://github.com/prefix-dev/pixi/releases/download/v0.80.0/
+checksums https://github.com/prefix-dev/pixi/releases/download/v0.80.0/sha256.sum
+platform win-64 pixi-x86_64-pc-windows-msvc.zip 7700e558c4abef7d9b12f6caffabef39aec50b86fb76ac86cafa24f7c6c49bf5 pixi.exe
+platform win-arm64 pixi-aarch64-pc-windows-msvc.zip c191687f58532308cdf938c03ef1873992fb9040e4abc83e52eba42e96567269 pixi.exe
+platform linux-64 pixi-x86_64-unknown-linux-musl.tar.gz 6775f5854579bf59a2a1ca8a7adb025f3386a6535d08757779cd358829d64a22 pixi
+platform linux-aarch64 pixi-aarch64-unknown-linux-musl.tar.gz 98fceb7e66278af239941621f057f54b32099807c01ad29f608305b4b3a2da1f pixi
+platform osx-arm64 pixi-aarch64-apple-darwin.tar.gz 988b5b9696b31345a71257f2d678c1be266763e3083d2e85fc484b5ef1dd96e0 pixi
+platform osx-64 pixi-x86_64-apple-darwin.tar.gz 32bd088fe612009f75e164673ca74465d1c22ed3b7e4b0a1ef030ea4d4573184 pixi

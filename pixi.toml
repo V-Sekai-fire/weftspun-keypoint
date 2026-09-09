@@ -1,0 +1,24 @@
+[workspace]
+name = "weftspun-keypoint"
+channels = ["conda-forge"]
+platforms = ["win-64", "linux-64", "linux-aarch64", "osx-arm64", "osx-64"]
+
+[dependencies]
+python = ">=3.12"
+
+[feature.gate.dependencies]
+prek = "*"
+clang-format = "==22.1.5"
+codespell = "*"
+ripgrep = "*"
+pyyaml = "*"
+
+[feature.build.dependencies]
+scons = ">=4.6"
+ninja = "*"
+cmake = ">=3.28"
+clangxx = "*"
+
+[environments]
+gate = ["gate"]
+build = ["build"]
