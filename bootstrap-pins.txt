@@ -10,3 +10,6 @@ pixi platform osx-64 pixi-x86_64-apple-darwin.tar.gz 32bd088fe612009f75e164673ca
 repo version v2.65
 repo source https://raw.githubusercontent.com/GerritCodeReview/git-repo/v2.65/repo
 repo sha256 1211b57b57e4122a9c546295a59b37d24068f1164d0e87bef096d5323c413e4f
+llvm-mingw version 20260505
+llvm-mingw source https://github.com/mstorsjo/llvm-mingw/releases/download/20260505/
+llvm-mingw platform win-64 llvm-mingw-20260505-ucrt-x86_64.zip 3e6919b3da2b6bfc05d8caf0ab10d5c0be4ddbb873b3c33790a71fe43c09c51f llvm-mingw-20260505-ucrt-x86_64

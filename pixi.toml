@@ -8,16 +8,16 @@ python = ">=3.12"
 
 [feature.gate.dependencies]
 prek = "*"
-clang-format = "==22.1.5"
-codespell = "*"
 ripgrep = "*"
 pyyaml = "*"
+clang-format = "==22.1.5"
+codespell = "==2.4.2"
 
 [feature.build.dependencies]
-scons = ">=4.6"
+scons = "==4.11.1"
+clangxx = "==22.1.5"
 ninja = "*"
 cmake = ">=3.28"
-clangxx = "*"
 
 [environments]
 gate = ["gate"]

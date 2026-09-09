@@ -24,6 +24,7 @@ handful of lines in files this repository owns.
   4. every pinned pixi checksum matches what the release publishes
   5. the pinned repo launcher matches what its source serves
   6. every script the readme's one-step command names exists here
+  7. the pinned llvm-mingw is the release the engine's Windows CI job installs
 
 The last two need the network. They are not skipped when it is absent, because a silent skip
 reads exactly like a pass; `--offline` drops them and still exits non-zero, naming them.
@@ -35,6 +36,7 @@ import argparse
 import hashlib
 import pathlib
 import sys
+import xml.etree.ElementTree as ET
 import urllib.request
 
 HERE = pathlib.Path(__file__).resolve().parent
@@ -113,6 +115,33 @@ def readme_scripts(readme_text):
     return out
 
 
+def ci_llvm_mingw(workspace, manifest=None):
+    """The llvm-mingw release the engine's Windows CI installs, or None if unreadable.
+
+    The engine's checkout path comes from the manifest rather than being spelled here, so
+    moving the project cannot silently turn this check into a skip.
+    """
+    manifest = manifest or (HERE / "default.xml")
+    try:
+        tree = ET.parse(manifest)
+    except Exception:
+        return None
+    path = None
+    for project in tree.getroot().iter("project"):
+        if project.get("name") == "entities-godot":
+            path = project.get("path")
+    if not path:
+        return None
+    workflow = pathlib.Path(workspace) / path / ".github" / "workflows" / "windows_builds.yml"
+    if not workflow.is_file():
+        return None
+    for line in workflow.read_text(encoding="utf-8", errors="replace").splitlines():
+        stripped = line.strip()
+        if stripped.startswith("ver=") and stripped[4:].isdigit():
+            return stripped[4:]
+    return None
+
+
 def check(pins_text, sh_text, ps_text, workspace, offline, readme_text=None):
     scalars, rows = read_pins(pins_text)
     failures, counts = [], {}
@@ -134,6 +163,19 @@ def check(pins_text, sh_text, ps_text, workspace, offline, readme_text=None):
     for name in sorted(rows):
         if name not in arms:
             failures.append(f"FAIL bootstrap-pins.txt pins {name}, which no installer can select")
+
+    counts["llvm-mingw pin checked against the engine's CI"] = 0
+    if workspace:
+        ci = ci_llvm_mingw(workspace)
+        if ci is None:
+            failures.append("FAIL could not read the llvm-mingw version out of the engine's windows_builds.yml")
+        else:
+            counts["llvm-mingw pin checked against the engine's CI"] = 1
+            pinned = scalars.get(("llvm-mingw", "version"))
+            if pinned != ci:
+                failures.append(
+                    f"FAIL llvm-mingw: pinned {pinned}, the engine's Windows CI installs {ci}"
+                )
 
     declared = declared_platforms(workspace) if workspace else {}
     counts["platforms declared by workspace pixi.toml"] = len(declared)
