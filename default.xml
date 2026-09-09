@@ -183,6 +183,13 @@
   <project name="sd-libwebp" path="3-interactor/stable-diffusion.cpp/thirdparty/libwebp" remote="v-sekai-fabric" revision="0c9546f7efc61eac7f79ae115c3f99c91c21c443" />
   <project name="sd-libwebm" path="3-interactor/stable-diffusion.cpp/thirdparty/libwebm" remote="v-sekai-fabric" revision="5bf12267eea773a32fcf4949de52b0add158a8d5" />
 
+  <project name="weftspun-keypoint" path="2-contract/weftspun-keypoint" remote="weftspun" revision="main">
+    <linkfile src="install.sh" dest="install.sh" />
+    <linkfile src="install.ps1" dest="install.ps1" />
+    <linkfile src="bootstrap-pins.txt" dest="bootstrap-pins.txt" />
+    <linkfile src="pixi.toml" dest="pixi.toml" />
+    <linkfile src="pixi.lock" dest="pixi.lock" />
+  </project>
   <project name="weftspun-agreements" path="2-contract/weftspun-agreements" remote="weftspun" revision="f11d2e515c0aed579ca1a3731748955164d4f8dc">
     <linkfile src="CLAUDE.md" dest="CLAUDE.md" />
   </project>

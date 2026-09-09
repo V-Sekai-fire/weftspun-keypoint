@@ -1,29 +1,37 @@
 # SPDX-License-Identifier: Apache-2.0 OR MIT
-"""Gate: the pinned pixi table, the two installers and the workspace's declared platforms
-all say the same thing.
+"""Gate: the bootstrap pins, the two installers and the workspace's declared platforms all
+say the same thing.
 
-WHY THIS EXISTS. Bootstrapping is the one step that cannot be done by the tool it installs,
-so the pins live in a text table rather than in a lockfile. A table is a second place, and a
+WHY THIS EXISTS. Bootstrapping is the step that cannot be done by the tools it installs, so
+the pins live in a text table rather than in a lockfile. A table is a second place, and a
 second place drifts: an installer grows an architecture arm whose row was never added, a
-release is re-pinned in the table and the checksum copied from the wrong line, or a project
-declares `osx-arm64` in its `pixi.toml` while nothing here can install pixi on it. None of
-those is visible until somebody is standing at a bare machine.
+release is re-pinned and the checksum copied from the wrong line, or a project declares
+`osx-arm64` in its `pixi.toml` while nothing here can install pixi on it. None of those is
+visible until somebody is standing at a bare machine.
 
-Four pairs are walked, each enumerated rather than sampled -- every population here is a
+ORDER, AND THE ONE LINK NO PIN COVERS. `repo` comes first and `pixi` second, because the
+pins live inside the manifest repository and only `repo init` puts that on disk. So the
+launcher that performed the first fetch was itself unpinned; `install.sh` re-fetches it at
+the pinned version, verifies it, and says so when the launcher already on PATH differs.
+Moving pixi first would not close the circle, only relocate it.
+
+Five pairs are walked, each enumerated rather than sampled -- every population here is a
 handful of lines in files this repository owns.
 
-  1. every architecture arm in an installer resolves to a row in the table
-  2. every row in the table is reachable from at least one installer arm
-  3. every platform any workspace `pixi.toml` declares has a row
-  4. every pinned checksum matches what the release publishes
+  1. every architecture arm in an installer resolves to a pixi row
+  2. every pixi row is reachable from at least one installer arm
+  3. every platform any workspace `pixi.toml` declares has a pixi row
+  4. every pinned pixi checksum matches what the release publishes
+  5. the pinned repo launcher matches what its source serves
 
-The fourth needs the network. It is not skipped when the network is absent, because a silent
-skip reads exactly like a pass; `--offline` drops it and still exits non-zero, naming it.
+The last two need the network. They are not skipped when it is absent, because a silent skip
+reads exactly like a pass; `--offline` drops them and still exits non-zero, naming them.
 
 Run:  python check_bootstrap.py [--workspace DIR] [--offline] [--self-test]
 """
 
 import argparse
+import hashlib
 import pathlib
 import sys
 import urllib.request
@@ -32,21 +40,18 @@ HERE = pathlib.Path(__file__).resolve().parent
 WORKSPACE = HERE.parent.parent  # .repo/manifests -> .repo -> the repo client root
 
 
-def read_table(text):
-    version, source, checksums, rows = "", "", "", {}
+def read_pins(text):
+    """`<tool> <key> <value...>` lines; pixi platform rows keyed by platform name."""
+    scalars, rows = {}, {}
     for line in text.splitlines():
         parts = line.split()
-        if not parts:
+        if len(parts) < 3:
             continue
-        if parts[0] == "version":
-            version = parts[1]
-        elif parts[0] == "source":
-            source = parts[1]
-        elif parts[0] == "checksums":
-            checksums = parts[1]
-        elif parts[0] == "platform" and len(parts) == 5:
-            rows[parts[1]] = {"asset": parts[2], "sha256": parts[3], "member": parts[4]}
-    return version, source, checksums, rows
+        if parts[0] == "pixi" and parts[1] == "platform" and len(parts) == 6:
+            rows[parts[2]] = {"asset": parts[3], "sha256": parts[4], "member": parts[5]}
+        else:
+            scalars[(parts[0], parts[1])] = parts[2]
+    return scalars, rows
 
 
 def sh_arms(text):
@@ -56,7 +61,7 @@ def sh_arms(text):
         stripped = line.strip()
         if stripped.startswith("want=") or ") want=" in stripped:
             token = stripped.split("want=", 1)[1].split()[0]
-            if token.isascii() and token[0].isalpha():
+            if token and token[0].isalpha():
                 out.add(token.rstrip(";"))
     return out
 
@@ -91,29 +96,32 @@ def declared_platforms(workspace):
     return out
 
 
-def published(url):
-    with urllib.request.urlopen(url, timeout=30) as response:
-        body = response.read().decode("utf-8")
-    return {p[1]: p[0] for p in (l.split() for l in body.splitlines()) if len(p) == 2}
+def fetch(url):
+    with urllib.request.urlopen(url, timeout=60) as response:
+        return response.read()
 
 
-def check(table_text, sh_text, ps_text, workspace, offline):
-    version, _source, checksums, rows = read_table(table_text)
+def check(pins_text, sh_text, ps_text, workspace, offline):
+    scalars, rows = read_pins(pins_text)
     failures, counts = [], {}
 
-    if not version or not rows:
-        return ["FAIL pixi-release.txt names no version or no platform row"], counts
+    for key in [("pixi", "version"), ("pixi", "source"), ("pixi", "checksums"),
+                ("repo", "version"), ("repo", "source"), ("repo", "sha256")]:
+        if key not in scalars:
+            failures.append(f"FAIL bootstrap-pins.txt names no {key[0]} {key[1]}")
+    if failures or not rows:
+        return failures or ["FAIL bootstrap-pins.txt pins no pixi platform"], counts
 
     arms = sh_arms(sh_text) | ps_arms(ps_text)
     counts["installer arms"] = len(arms)
     for arm in sorted(arms):
         if arm not in rows:
-            failures.append(f"FAIL an installer selects {arm}, which has no row in pixi-release.txt")
+            failures.append(f"FAIL an installer selects {arm}, which has no pixi row")
 
-    counts["pinned rows"] = len(rows)
+    counts["pinned pixi rows"] = len(rows)
     for name in sorted(rows):
         if name not in arms:
-            failures.append(f"FAIL pixi-release.txt pins {name}, which no installer can select")
+            failures.append(f"FAIL bootstrap-pins.txt pins {name}, which no installer can select")
 
     declared = declared_platforms(workspace) if workspace else {}
     counts["platforms declared by workspace pixi.toml"] = len(declared)
@@ -122,14 +130,18 @@ def check(table_text, sh_text, ps_text, workspace, offline):
             failures.append(f"FAIL {users[0]} declares {name}, which pixi cannot be bootstrapped on")
 
     if offline:
-        counts["checksums verified against the release"] = 0
+        counts["pixi checksums verified against the release"] = 0
+        counts["repo launcher verified against its source"] = 0
         failures.append("FAIL --offline: the published checksums were not read, which is not a pass")
+        return failures, counts
+
+    try:
+        body = fetch(scalars[("pixi", "checksums")]).decode("utf-8")
+    except Exception as exc:
+        failures.append(f"FAIL could not read the pixi checksums: {exc}")
     else:
-        try:
-            upstream = published(checksums)
-        except Exception as exc:
-            return failures + [f"FAIL could not read {checksums}: {exc}"], counts
-        counts["checksums verified against the release"] = len(rows)
+        upstream = {p[1]: p[0] for p in (l.split() for l in body.splitlines()) if len(p) == 2}
+        counts["pixi checksums verified against the release"] = len(rows)
         for name, row in sorted(rows.items()):
             want = upstream.get(row["asset"])
             if want is None:
@@ -137,54 +149,59 @@ def check(table_text, sh_text, ps_text, workspace, offline):
             elif want != row["sha256"]:
                 failures.append(f"FAIL {name}: pinned {row['sha256'][:12]}, published {want[:12]}")
 
+    try:
+        launcher = fetch(scalars[("repo", "source")])
+    except Exception as exc:
+        failures.append(f"FAIL could not read the repo launcher: {exc}")
+    else:
+        counts["repo launcher verified against its source"] = 1
+        got = hashlib.sha256(launcher).hexdigest()
+        if got != scalars[("repo", "sha256")]:
+            failures.append(
+                f"FAIL repo launcher {scalars[('repo', 'version')]}: "
+                f"pinned {scalars[('repo', 'sha256')][:12]}, served {got[:12]}"
+            )
+
     return failures, counts
 
 
 def self_test():
-    table = (HERE / "pixi-release.txt").read_text(encoding="utf-8")
+    pins = (HERE / "bootstrap-pins.txt").read_text(encoding="utf-8")
     sh = (HERE / "install.sh").read_text(encoding="utf-8")
     ps = (HERE / "install.ps1").read_text(encoding="utf-8")
     controls = [
-        (
-            "a wrong checksum is rejected",
-            table.replace("7700e558", "0000e558"),
-            sh,
-            ps,
-            None,
-            False,
-        ),
+        ("a wrong pixi checksum is rejected", pins.replace("7700e558", "0000e558"), False),
+        ("a wrong repo launcher checksum is rejected", pins.replace("1211b57b", "0000b57b"), False),
         (
             "an installer arm with no row is rejected",
-            "\n".join(l for l in table.splitlines() if not l.startswith("platform osx-64")),
-            sh,
-            ps,
-            None,
+            "\n".join(l for l in pins.splitlines() if not l.startswith("pixi platform osx-64")),
             True,
         ),
         (
             "a row no installer selects is rejected",
-            table + "platform aix-64 pixi-aix.tar.gz " + "0" * 64 + " pixi\n",
-            sh,
-            ps,
-            None,
+            pins + "pixi platform aix-64 pixi-aix.tar.gz " + "0" * 64 + " pixi\n",
             True,
         ),
-        ("--offline is not a pass", table, sh, ps, None, True),
+        ("a missing repo pin is rejected",
+         "\n".join(l for l in pins.splitlines() if not l.startswith("repo source")), True),
+        ("--offline is not a pass", pins, True),
     ]
     bad = 0
-    for name, t, s, p, ws, off in controls:
-        failures, _ = check(t, s, p, ws, off)
-        status = "ok" if failures else "CONTROL DID NOT FIRE"
-        bad += 0 if failures else 1
-        print(f"  {status}: {name}")
-    failures, _ = check(table, sh, ps, None, False)
+    for name, text, offline in controls:
+        failures, _ = check(text, sh, ps, None, offline)
+        if failures:
+            print(f"  ok: {name}")
+        else:
+            bad += 1
+            print(f"  CONTROL DID NOT FIRE: {name}")
+    failures, _ = check(pins, sh, ps, None, False)
     if failures:
         bad += 1
-        print("  CONTROL DID NOT FIRE: the shipped table passes")
+        print("  CONTROL DID NOT FIRE: the shipped pins pass")
         for f in failures:
             print(f"    {f}")
     else:
-        print("  ok: the shipped table passes")
+        print("  ok: the shipped pins pass")
     return 1 if bad else 0
 
 
@@ -200,7 +217,7 @@ def main():
 
     workspace = args.workspace if pathlib.Path(args.workspace).is_dir() else None
     failures, counts = check(
-        (HERE / "pixi-release.txt").read_text(encoding="utf-8"),
+        (HERE / "bootstrap-pins.txt").read_text(encoding="utf-8"),
         (HERE / "install.sh").read_text(encoding="utf-8"),
         (HERE / "install.ps1").read_text(encoding="utf-8"),
         workspace,
