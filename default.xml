@@ -7,6 +7,7 @@
   <remote name="v-sekai" fetch="https://github.com/v-sekai" />
   <remote name="laurencelundblade" fetch="https://github.com/laurencelundblade" />
   <remote name="ftxui" fetch="https://github.com/ArthurSonzogni" />
+  <remote name="thorvg" fetch="https://github.com/thorvg" />
   <remote name="huggingface" fetch="https://huggingface.co" />
   <remote name="huggingface-datasets" fetch="https://huggingface.co/datasets" />
   <remote name="SarahWeiii" fetch="https://github.com/SarahWeiii" />
@@ -79,6 +80,8 @@
   <project name="kimodo.cpp" path="3-interactor/kimodo.cpp" remote="weftspun" revision="main" />
   <project name="ggml" path="3-interactor/pixal3d.cpp/ggml" remote="weftspun" revision="d646939ac1167441f6b50feafb7fac11dfe864cd" />
   <project name="ggml" path="3-interactor/ggml-seethrough" remote="weftspun" revision="d646939ac1167441f6b50feafb7fac11dfe864cd" />
+  <project name="thorvg" path="2-contract/thorvg" remote="thorvg"
+           revision="d114cd9e3c32d7f77bc9b324ae5c71d7775cb7ae" />
   <project name="ggml" path="2-contract/ggml" remote="weftspun" revision="weftspun-consolidated" />
   <project name="ufbx-to-openusd" path="3-interactor/ufbx-to-openusd" remote="weftspun" revision="main" />
   <project name="unified-modal-embedder" path="3-interactor/unified-modal-embedder" remote="weftspun" revision="main" />
