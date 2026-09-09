@@ -23,6 +23,7 @@ handful of lines in files this repository owns.
   3. every platform any workspace `pixi.toml` declares has a pixi row
   4. every pinned pixi checksum matches what the release publishes
   5. the pinned repo launcher matches what its source serves
+  6. every script the readme's one-step command names exists here
 
 The last two need the network. They are not skipped when it is absent, because a silent skip
 reads exactly like a pass; `--offline` drops them and still exits non-zero, naming them.
@@ -101,7 +102,18 @@ def fetch(url):
         return response.read()
 
 
-def check(pins_text, sh_text, ps_text, workspace, offline):
+def readme_scripts(readme_text):
+    """Every bootstrap script the readme's one-step commands name, in the order they appear."""
+    out = []
+    for line in readme_text.splitlines():
+        for token in line.replace("`", " ").split():
+            name = token.rsplit("/", 1)[-1]
+            if name.startswith("bootstrap.") and name not in out:
+                out.append(name)
+    return out
+
+
+def check(pins_text, sh_text, ps_text, workspace, offline, readme_text=None):
     scalars, rows = read_pins(pins_text)
     failures, counts = [], {}
 
@@ -128,6 +140,15 @@ def check(pins_text, sh_text, ps_text, workspace, offline):
     for name, users in sorted(declared.items()):
         if name not in rows:
             failures.append(f"FAIL {users[0]} declares {name}, which pixi cannot be bootstrapped on")
+
+    if readme_text is not None:
+        named = readme_scripts(readme_text)
+        counts["bootstrap scripts named by the readme"] = len(named)
+        if not named:
+            failures.append("FAIL the readme names no bootstrap script, so it is not one step")
+        for name in named:
+            if not (HERE / name).is_file():
+                failures.append(f"FAIL the readme's one-step command names {name}, which is not here")
 
     if offline:
         counts["pixi checksums verified against the release"] = 0
@@ -169,6 +190,7 @@ def self_test():
     pins = (HERE / "bootstrap-pins.txt").read_text(encoding="utf-8")
     sh = (HERE / "install.sh").read_text(encoding="utf-8")
     ps = (HERE / "install.ps1").read_text(encoding="utf-8")
+    readme = (HERE / "readme.md").read_text(encoding="utf-8")
     controls = [
         ("a wrong pixi checksum is rejected", pins.replace("7700e558", "0000e558"), False),
         ("a wrong repo launcher checksum is rejected", pins.replace("1211b57b", "0000b57b"), False),
@@ -186,6 +208,12 @@ def self_test():
          "\n".join(l for l in pins.splitlines() if not l.startswith("repo source")), True),
         ("--offline is not a pass", pins, True),
     ]
+    readme_controls = [
+        ("a readme naming a script that is not here is rejected",
+         readme.replace("bootstrap.sh", "bootstrap.zsh")),
+        ("a readme naming no bootstrap script is rejected",
+         readme.replace("bootstrap.sh", "x").replace("bootstrap.ps1", "y")),
+    ]
     bad = 0
     for name, text, offline in controls:
         failures, _ = check(text, sh, ps, None, offline)
@@ -194,7 +222,15 @@ def self_test():
         else:
             bad += 1
             print(f"  CONTROL DID NOT FIRE: {name}")
-    failures, _ = check(pins, sh, ps, None, False)
+    for name, text in readme_controls:
+        failures, _ = check(pins, sh, ps, None, True, text)
+        readme_failed = any("readme" in f for f in failures)
+        if readme_failed:
+            print(f"  ok: {name}")
+        else:
+            bad += 1
+            print(f"  CONTROL DID NOT FIRE: {name}")
+    failures, _ = check(pins, sh, ps, None, False, readme)
     if failures:
         bad += 1
         print("  CONTROL DID NOT FIRE: the shipped pins pass")
@@ -222,6 +258,7 @@ def main():
         (HERE / "install.ps1").read_text(encoding="utf-8"),
         workspace,
         args.offline,
+        (HERE / "readme.md").read_text(encoding="utf-8"),
     )
     if workspace is None:
         print(f"  note: {args.workspace} is not a directory, so no pixi.toml was read")
