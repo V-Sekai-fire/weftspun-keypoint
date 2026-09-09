@@ -37,7 +37,7 @@
   <project name="skin-tokens.cpp" path="3-interactor/skin-tokens-cpp" remote="weftspun" revision="main" />
   <project name="CoACD" path="3-interactor/coacd-upstream" remote="SarahWeiii" revision="1401ce2a7ae1ed89c65ab958b48d489350c233c7" />
   <project name="motion-bricks.cpp" path="3-interactor/motion-bricks-cpp" remote="weftspun" revision="main" />
-  <project name="entities-godot" path="3-interactor/entities-godot-sandbox" remote="v-sekai-fabric" revision="feat/vsk-sandbox-4.7" />
+  <project name="entities-godot" path="3-interactor/entities-godot-sandbox" remote="v-sekai-fabric" revision="multiplayer-fabric" />
   <project name="turboquant-godot" path="3-interactor/turboquant-godot" remote="v-sekai-fire" revision="feat/turboquant-on-master" />
   <project name="interactor-cineform" path="3-interactor/interactor-cineform" remote="weftspun" revision="main" />
   <project name="datasource-flow" path="3-interactor/datasource-flow" remote="v-sekai-fabric" revision="main-fabric" />
@@ -169,9 +169,9 @@
            remote="ftxui" revision="182ef70cd4dc1109d06e66361a9da86445928578" />
 
   <project name="godot-sandbox" path="3-interactor/entities-godot-sandbox/modules/sandbox"
-           remote="v-sekai-fabric" revision="06a749b03823eb656437f8a2a95b69f917c75cf0" />
+           remote="v-sekai-fabric" revision="f7466c5c8d6ef5f4b87e04dfe93c8da3859b019b" />
   <project name="libriscv" path="3-interactor/entities-godot-sandbox/modules/sandbox/thirdparty/libriscv"
-           remote="v-sekai-fabric" revision="2b681b996992d91ee7da0d228d0e5935b42bb879" />
+           remote="v-sekai-fabric" revision="fdf8fd8b2e7283db4463323a00413f0bbb1d9d97" />
   <project name="crossbuild-fedora" path="7-service/crossbuild-fedora"
            remote="v-sekai-fabric" revision="1fc1fc8c376de4081ad5ea6bf127c4dfede8003a" />
 
