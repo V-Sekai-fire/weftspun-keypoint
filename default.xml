@@ -59,7 +59,7 @@
   <project name="interactor-gemma4-composer" path="3-interactor/gemma4-composer" remote="v-sekai-fire" revision="main" />
   <project name="multimodal-semantic-ids" path="3-interactor/multimodal-semantic-ids" remote="v-sekai-fire" revision="main" />
   <project name="nx-ggml" path="3-interactor/nx-ggml" remote="v-sekai-fire" revision="main" />
-  <project name="taskweft" path="3-interactor/taskweft" remote="v-sekai-fire" revision="main" />
+  <project name="interactor-taskweft" path="3-interactor/taskweft" remote="v-sekai-fire" revision="from-taskweft/main" />
   <project name="taskweft-grafcet-static" path="3-interactor/taskweft-grafcet-static" remote="v-sekai-fire" revision="main" />
   <project name="taskweft-function-block-diagram" path="3-interactor/taskweft-function-block-diagram-compiler" remote="v-sekai-fire" revision="main" />
   <project name="taskweft-fbd-teacher" path="3-interactor/taskweft-function-block-diagram-teacher" remote="v-sekai-fire" revision="main" />
