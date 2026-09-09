@@ -1,11 +1,11 @@
 ```
-curl -fsSL https://raw.githubusercontent.com/v-sekai-fabric/weftspun-keypoint/main/bootstrap.sh | sh
+curl -fsSL https://raw.githubusercontent.com/V-Sekai-fire/weftspun-keypoint/main/bootstrap.sh | sh
 ```
 
 One step from a bare machine to a synced, tooled workspace: it installs the
 pinned `repo` launcher, runs `repo init`, installs the pinned `pixi`, syncs, and
 resolves the tool environments. On Windows,
-`irm https://raw.githubusercontent.com/v-sekai-fabric/weftspun-keypoint/main/bootstrap.ps1 | iex`.
+`irm https://raw.githubusercontent.com/V-Sekai-fire/weftspun-keypoint/main/bootstrap.ps1 | iex`.
 
 `repo` comes first and `pixi` second, because the pins for both live in this
 repository and only `repo init` puts it on disk. That leaves one fetch nothing

@@ -1,13 +1,13 @@
 #!/bin/sh
 # One step from a bare machine to a synced, tooled workspace, on Linux and macOS:
 #
-#   curl -fsSL https://raw.githubusercontent.com/v-sekai-fabric/weftspun-keypoint/main/bootstrap.sh | sh
+#   curl -fsSL https://raw.githubusercontent.com/V-Sekai-fire/weftspun-keypoint/main/bootstrap.sh | sh
 #
 # Runs in the current directory, which becomes the repo client root.
 set -eu
 
-raw=${WEFTSPUN_RAW:-https://raw.githubusercontent.com/v-sekai-fabric/weftspun-keypoint/main}
-manifest=${WEFTSPUN_MANIFEST:-https://github.com/v-sekai-fabric/weftspun-keypoint.git}
+raw=${WEFTSPUN_RAW:-https://raw.githubusercontent.com/V-Sekai-fire/weftspun-keypoint/main}
+manifest=${WEFTSPUN_MANIFEST:-https://github.com/V-Sekai-fire/weftspun-keypoint.git}
 branch=${WEFTSPUN_BRANCH:-main}
 bin="${LOCAL_BIN:-$HOME/.local/bin}"
 pixi_bin="${PIXI_HOME:-$HOME/.pixi}/bin"
