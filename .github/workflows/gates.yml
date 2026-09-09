@@ -127,3 +127,22 @@ jobs:
       # readme are checked in full, which is what a fresh desk actually depends on.
       - name: the pins agree with what their sources serve
         run: python check_bootstrap.py --workspace /nonexistent
+
+  # RFD 2229's interchangeable-parts policy caller. Reports duplicate-name,
+  # duplicate-path, and duplicate SHA-pinned remote+revision groups in the
+  # manifest. Written in Elixir so the gate that reads a manifest and the
+  # RFD DSL that describes what the manifest carries share the same
+  # runtime; the check itself is stdlib-only (:xmerl_scan).
+  manifest-dupes:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: erlef/setup-beam@v1
+        with:
+          otp-version: '27'
+          elixir-version: '1.20'
+      # Controls first, for the same reason as above.
+      - name: negative controls
+        run: elixir check_manifest_dupes.exs --self-test
+      - name: the manifest carries one project per interface
+        run: elixir check_manifest_dupes.exs --manifest default.xml
