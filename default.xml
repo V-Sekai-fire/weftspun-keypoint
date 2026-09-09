@@ -24,6 +24,7 @@
   <project name="transport-taskweft-acp" path="1-transport/transport-taskweft-acp" remote="v-sekai-fire" revision="main" />
   <project name="usd-viewer" path="1-transport/usd-viewer" remote="v-sekai-fire" revision="main" />
   <project name="weftspun-usd-viewer" path="1-transport/weftspun-usd-viewer" remote="v-sekai-fire" revision="main" />
+  <project name="elixir-libgodot-connector" path="1-transport/elixir-libgodot-connector" remote="v-sekai-fire" revision="main" />
   <project name="hm08-partition" path="2-contract/hm08-partition" remote="v-sekai-fire" revision="main" />
   <project name="anny-keypoint-anchors" path="2-contract/anny-keypoint-anchors" remote="v-sekai-fire" revision="main" />
   <project name="manuals" path="2-contract/manuals-vsk" remote="v-sekai" revision="main" />
