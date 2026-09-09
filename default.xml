@@ -77,7 +77,6 @@
   <project name="pixal3d.cpp" path="3-interactor/pixal3d.cpp" remote="v-sekai-fire" revision="main" />
   <project name="kimodo.cpp" path="3-interactor/kimodo.cpp" remote="v-sekai-fire" revision="main" />
   <project name="ggml" path="3-interactor/pixal3d.cpp/ggml" remote="v-sekai-fire" revision="d646939ac1167441f6b50feafb7fac11dfe864cd" />
-  <project name="ggml" path="3-interactor/ggml-seethrough" remote="v-sekai-fire" revision="d646939ac1167441f6b50feafb7fac11dfe864cd" />
   <project name="thorvg" path="2-contract/thorvg" remote="thorvg"
            revision="d114cd9e3c32d7f77bc9b324ae5c71d7775cb7ae" />
   <project name="ggml" path="2-contract/ggml" remote="v-sekai-fire" revision="weftspun-consolidated" />
