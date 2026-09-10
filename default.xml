@@ -36,13 +36,13 @@
   <project name="skin-tokens.cpp" path="3-interactor/skin-tokens-cpp" remote="v-sekai-fire" revision="main" />
   <project name="CoACD" path="3-interactor/coacd-upstream" remote="SarahWeiii" revision="1401ce2a7ae1ed89c65ab958b48d489350c233c7" />
   <project name="motion-bricks.cpp" path="3-interactor/motion-bricks-cpp" remote="v-sekai-fire" revision="main" />
-  <project name="entities-godot" path="4-entities/entities-godot" remote="v-sekai-fire" revision="dev/fabric-0.1.0" />
-  <project name="turboquant-godot" path="3-interactor/turboquant-godot" remote="v-sekai-fire" revision="feat/turboquant-on-master" />
+  <project name="entities-godot" path="4-entities/entities-godot" remote="v-sekai-fire" revision="main/fabric-0.1.0" />
+  <project name="turboquant-godot" path="3-interactor/turboquant-godot" remote="v-sekai-fire" revision="main/turboquant" />
   <project name="interactor-cineform" path="3-interactor/interactor-cineform" remote="v-sekai-fire" revision="main" />
-  <project name="datasource-flow" path="3-interactor/datasource-flow" remote="v-sekai-fire" revision="main-fabric" />
+  <project name="datasource-flow" path="3-interactor/datasource-flow" remote="v-sekai-fire" revision="main/fabric" />
   <project name="datasource-flow-project" path="3-interactor/datasource-flow-project" remote="v-sekai-fire" revision="main" />
   <project name="idtx-flow-project" path="3-interactor/idtx-flow-project" remote="v-sekai-fire" revision="main" />
-  <project name="idtx-flow" path="3-interactor/idtx-flow" remote="v-sekai-fire" revision="feat/blend-shapes" />
+  <project name="idtx-flow" path="3-interactor/idtx-flow" remote="v-sekai-fire" revision="main/blend-shapes" />
   <project name="cyclegan-style-transfer" path="3-interactor/cyclegan-style-transfer" remote="v-sekai-fire" revision="main" />
   <project name="rf-detr-cpp" path="3-interactor/rf-detr-cpp" remote="v-sekai-fire" revision="main" />
   <project name="interactor-pose-consensus" path="3-interactor/pose-consensus" remote="v-sekai-fire" revision="main" />
@@ -60,7 +60,7 @@
   <project name="interactor-gemma4-composer" path="3-interactor/gemma4-composer" remote="v-sekai-fire" revision="main" />
   <project name="multimodal-semantic-ids" path="3-interactor/multimodal-semantic-ids" remote="v-sekai-fire" revision="main" />
   <project name="nx-ggml" path="3-interactor/nx-ggml" remote="v-sekai-fire" revision="main" />
-  <project name="interactor-taskweft" path="3-interactor/taskweft" remote="v-sekai-fire" revision="from-taskweft/main" />
+  <project name="interactor-taskweft" path="3-interactor/taskweft" remote="v-sekai-fire" revision="main/from-taskweft" />
   <project name="taskweft-grafcet-static" path="3-interactor/taskweft-grafcet-static" remote="v-sekai-fire" revision="main" />
   <project name="taskweft-function-block-diagram" path="3-interactor/taskweft-function-block-diagram-compiler" remote="v-sekai-fire" revision="main" />
   <project name="taskweft-fbd-teacher" path="3-interactor/taskweft-function-block-diagram-teacher" remote="v-sekai-fire" revision="main" />
@@ -78,7 +78,7 @@
   <project name="kimodo.cpp" path="3-interactor/kimodo.cpp" remote="v-sekai-fire" revision="main" />
   <project name="thorvg" path="2-contract/thorvg" remote="thorvg"
            revision="d114cd9e3c32d7f77bc9b324ae5c71d7775cb7ae" />
-  <project name="ggml" path="2-contract/ggml" remote="v-sekai-fire" revision="weftspun-consolidated" />
+  <project name="ggml" path="2-contract/ggml" remote="v-sekai-fire" revision="main/consolidated" />
   <project name="ufbx-to-openusd" path="3-interactor/ufbx-to-openusd" remote="v-sekai-fire" revision="main" />
   <project name="unified-modal-embedder" path="3-interactor/unified-modal-embedder" remote="v-sekai-fire" revision="main" />
   <project name="interactor-voxhammer-image-mesh-editing" path="3-interactor/voxhammer-image-mesh-editing" remote="v-sekai-fire" revision="main" />
