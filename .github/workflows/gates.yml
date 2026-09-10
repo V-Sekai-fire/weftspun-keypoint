@@ -22,7 +22,7 @@ on:
     # is most often fixed by editing it rather than by pushing a commit.
     types: [opened, edited, synchronize, reopened]
   push:
-    branches: [main]
+    branches: [main/main]
 
 jobs:
   pr-description:
