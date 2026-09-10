@@ -36,7 +36,7 @@
   <project name="skin-tokens.cpp" path="3-interactor/skin-tokens-cpp" remote="v-sekai-fire" revision="main" />
   <project name="CoACD" path="3-interactor/coacd-upstream" remote="SarahWeiii" revision="1401ce2a7ae1ed89c65ab958b48d489350c233c7" />
   <project name="motion-bricks.cpp" path="3-interactor/motion-bricks-cpp" remote="v-sekai-fire" revision="main" />
-  <project name="entities-godot" path="3-interactor/entities-godot" remote="v-sekai-fire" revision="v-sekai-fire" />
+  <project name="entities-godot" path="3-interactor/entities-godot" remote="v-sekai-fire" revision="feat/ci-ar-response-file" />
   <project name="turboquant-godot" path="3-interactor/turboquant-godot" remote="v-sekai-fire" revision="feat/turboquant-on-master" />
   <project name="interactor-cineform" path="3-interactor/interactor-cineform" remote="v-sekai-fire" revision="main" />
   <project name="datasource-flow" path="3-interactor/datasource-flow" remote="v-sekai-fire" revision="main-fabric" />
@@ -118,7 +118,6 @@
   <project name="weftspun-character-taxonomy" path="2-contract/weftspun-character-taxonomy" remote="v-sekai-fire" revision="main" />
   <project name=".github" path=".github" remote="v-sekai-fire" revision="main" />
   <project name="dot-claude" path=".claude" remote="v-sekai-fire" revision="main" />
-  <project name="repository-side" path="5-repository/side" remote="v-sekai-fire" revision="main" />
   <project name="hailo_model_zoo" path="5-repository/hailo-model-zoo" remote="v-sekai-fire" revision="refs/tags/keypoint/v0.1.0-dev.1" />
   <project name="chibifire/anny-camera-lora" path="5-repository/anny-camera-lora" remote="huggingface" revision="main" />
   <project name="chibifire/omnigen2-base-df5dca8a" path="5-repository/omnigen2-base-df5dca8a" remote="huggingface" revision="main" />
