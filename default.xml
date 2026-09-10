@@ -17,71 +17,71 @@
 
   <default sync-j="16" />
 
-  <project name="weftspun-studio" path="1-transport/weftspun-studio" remote="v-sekai-fire" revision="main" />
-  <project name="transport-cineform-tui" path="1-transport/transport-cineform-tui" remote="v-sekai-fire" revision="main" />
-  <project name="transport-shepherd" path="1-transport/transport-shepherd" remote="v-sekai-fire" revision="main" />
-  <project name="ex_mcp" path="1-transport/ex-mcp" remote="v-sekai-fire" revision="main" />
-  <project name="transport-taskweft-acp" path="1-transport/transport-taskweft-acp" remote="v-sekai-fire" revision="main" />
-  <project name="usd-viewer" path="1-transport/usd-viewer" remote="v-sekai-fire" revision="main" />
-  <project name="weftspun-usd-viewer" path="1-transport/weftspun-usd-viewer" remote="v-sekai-fire" revision="main" />
-  <project name="elixir-libgodot-connector" path="1-transport/elixir-libgodot-connector" remote="v-sekai-fire" revision="main" />
-  <project name="hm08-partition" path="2-contract/hm08-partition" remote="v-sekai-fire" revision="main" />
-  <project name="anny-keypoint-anchors" path="2-contract/anny-keypoint-anchors" remote="v-sekai-fire" revision="main" />
+  <project name="weftspun-studio" path="1-transport/weftspun-studio" remote="v-sekai-fire" revision="main/main" />
+  <project name="transport-cineform-tui" path="1-transport/transport-cineform-tui" remote="v-sekai-fire" revision="main/main" />
+  <project name="transport-shepherd" path="1-transport/transport-shepherd" remote="v-sekai-fire" revision="main/main" />
+  <project name="ex_mcp" path="1-transport/ex-mcp" remote="v-sekai-fire" revision="main/main" />
+  <project name="transport-taskweft-acp" path="1-transport/transport-taskweft-acp" remote="v-sekai-fire" revision="main/main" />
+  <project name="usd-viewer" path="1-transport/usd-viewer" remote="v-sekai-fire" revision="main/main" />
+  <project name="weftspun-usd-viewer" path="1-transport/weftspun-usd-viewer" remote="v-sekai-fire" revision="main/main" />
+  <project name="elixir-libgodot-connector" path="1-transport/elixir-libgodot-connector" remote="v-sekai-fire" revision="main/main" />
+  <project name="hm08-partition" path="2-contract/hm08-partition" remote="v-sekai-fire" revision="main/main" />
+  <project name="anny-keypoint-anchors" path="2-contract/anny-keypoint-anchors" remote="v-sekai-fire" revision="main/main" />
   <project name="manuals" path="2-contract/manuals-vsk" remote="v-sekai" revision="main" />
-  <project name="swing-twist-kusudama" path="2-contract/swing-twist-kusudama" remote="v-sekai-fire" revision="main" />
-  <project name="contract-bus" path="2-contract/bus" remote="v-sekai-fire" revision="main" />
+  <project name="swing-twist-kusudama" path="2-contract/swing-twist-kusudama" remote="v-sekai-fire" revision="main/main" />
+  <project name="contract-bus" path="2-contract/bus" remote="v-sekai-fire" revision="main/main" />
   <project name="QCBOR" path="2-contract/bus/libs/qcbor" remote="laurencelundblade" revision="refs/tags/v1.6.1" />
-  <project name="interactor-kimodo-text-to-motion" path="3-interactor/kimodo-text-to-motion" remote="v-sekai-fire" revision="main" />
-  <project name="interactor-skintokens-auto-rig" path="3-interactor/skintokens-auto-rig" remote="v-sekai-fire" revision="main" />
-  <project name="skin-tokens.cpp" path="3-interactor/skin-tokens-cpp" remote="v-sekai-fire" revision="main" />
+  <project name="interactor-kimodo-text-to-motion" path="3-interactor/kimodo-text-to-motion" remote="v-sekai-fire" revision="main/main" />
+  <project name="interactor-skintokens-auto-rig" path="3-interactor/skintokens-auto-rig" remote="v-sekai-fire" revision="main/main" />
+  <project name="skin-tokens.cpp" path="3-interactor/skin-tokens-cpp" remote="v-sekai-fire" revision="main/main" />
   <project name="CoACD" path="3-interactor/coacd-upstream" remote="SarahWeiii" revision="1401ce2a7ae1ed89c65ab958b48d489350c233c7" />
-  <project name="motion-bricks.cpp" path="3-interactor/motion-bricks-cpp" remote="v-sekai-fire" revision="main" />
+  <project name="motion-bricks.cpp" path="3-interactor/motion-bricks-cpp" remote="v-sekai-fire" revision="main/main" />
   <project name="entities-godot" path="4-entities/entities-godot" remote="v-sekai-fire" revision="main/fabric-0.1.0" />
   <project name="turboquant-godot" path="3-interactor/turboquant-godot" remote="v-sekai-fire" revision="main/turboquant" />
-  <project name="interactor-cineform" path="3-interactor/interactor-cineform" remote="v-sekai-fire" revision="main" />
+  <project name="interactor-cineform" path="3-interactor/interactor-cineform" remote="v-sekai-fire" revision="main/main" />
   <project name="datasource-flow" path="3-interactor/datasource-flow" remote="v-sekai-fire" revision="main/fabric" />
-  <project name="datasource-flow-project" path="3-interactor/datasource-flow-project" remote="v-sekai-fire" revision="main" />
-  <project name="idtx-flow-project" path="3-interactor/idtx-flow-project" remote="v-sekai-fire" revision="main" />
+  <project name="datasource-flow-project" path="3-interactor/datasource-flow-project" remote="v-sekai-fire" revision="main/main" />
+  <project name="idtx-flow-project" path="3-interactor/idtx-flow-project" remote="v-sekai-fire" revision="main/main" />
   <project name="idtx-flow" path="3-interactor/idtx-flow" remote="v-sekai-fire" revision="main/blend-shapes" />
-  <project name="cyclegan-style-transfer" path="3-interactor/cyclegan-style-transfer" remote="v-sekai-fire" revision="main" />
-  <project name="rf-detr-cpp" path="3-interactor/rf-detr-cpp" remote="v-sekai-fire" revision="main" />
-  <project name="interactor-pose-consensus" path="3-interactor/pose-consensus" remote="v-sekai-fire" revision="main" />
-  <project name="interactor-omnigen2" path="3-interactor/omnigen2" remote="v-sekai-fire" revision="main" />
-  <project name="interactor-editscore" path="3-interactor/editscore" remote="v-sekai-fire" revision="main" />
-  <project name="tropes-removal-model" path="3-interactor/tropes-removal-model" remote="v-sekai-fire" revision="main" />
+  <project name="cyclegan-style-transfer" path="3-interactor/cyclegan-style-transfer" remote="v-sekai-fire" revision="main/main" />
+  <project name="rf-detr-cpp" path="3-interactor/rf-detr-cpp" remote="v-sekai-fire" revision="main/main" />
+  <project name="interactor-pose-consensus" path="3-interactor/pose-consensus" remote="v-sekai-fire" revision="main/main" />
+  <project name="interactor-omnigen2" path="3-interactor/omnigen2" remote="v-sekai-fire" revision="main/main" />
+  <project name="interactor-editscore" path="3-interactor/editscore" remote="v-sekai-fire" revision="main/main" />
+  <project name="tropes-removal-model" path="3-interactor/tropes-removal-model" remote="v-sekai-fire" revision="main/main" />
   <project name="solve" path="3-interactor/sinew-solve" remote="sinew-mocap" revision="main" />
   <project name="mount-drift" path="3-interactor/sinew-mount-drift" remote="sinew-mocap" revision="main" />
-  <project name="interactor-physics" path="3-interactor/physics" remote="v-sekai-fire" revision="main" />
-  <project name="interactor-motion" path="3-interactor/motion" remote="v-sekai-fire" revision="main" />
-  <project name="interactor-mujoco-mjx" path="3-interactor/mujoco-mjx" remote="v-sekai-fire" revision="main" />
-  <project name="interactor-anny" path="3-interactor/anny" remote="v-sekai-fire" revision="main" />
-  <project name="interactor-soma-x" path="3-interactor/soma-x" remote="v-sekai-fire" revision="main" />
-  <project name="bumblebee" path="3-interactor/bumblebee" remote="v-sekai-fire" revision="main" />
-  <project name="interactor-gemma4-composer" path="3-interactor/gemma4-composer" remote="v-sekai-fire" revision="main" />
-  <project name="multimodal-semantic-ids" path="3-interactor/multimodal-semantic-ids" remote="v-sekai-fire" revision="main" />
-  <project name="nx-ggml" path="3-interactor/nx-ggml" remote="v-sekai-fire" revision="main" />
+  <project name="interactor-physics" path="3-interactor/physics" remote="v-sekai-fire" revision="main/main" />
+  <project name="interactor-motion" path="3-interactor/motion" remote="v-sekai-fire" revision="main/main" />
+  <project name="interactor-mujoco-mjx" path="3-interactor/mujoco-mjx" remote="v-sekai-fire" revision="main/main" />
+  <project name="interactor-anny" path="3-interactor/anny" remote="v-sekai-fire" revision="main/main" />
+  <project name="interactor-soma-x" path="3-interactor/soma-x" remote="v-sekai-fire" revision="main/main" />
+  <project name="bumblebee" path="3-interactor/bumblebee" remote="v-sekai-fire" revision="main/main" />
+  <project name="interactor-gemma4-composer" path="3-interactor/gemma4-composer" remote="v-sekai-fire" revision="main/main" />
+  <project name="multimodal-semantic-ids" path="3-interactor/multimodal-semantic-ids" remote="v-sekai-fire" revision="main/main" />
+  <project name="nx-ggml" path="3-interactor/nx-ggml" remote="v-sekai-fire" revision="main/main" />
   <project name="interactor-taskweft" path="3-interactor/taskweft" remote="v-sekai-fire" revision="main/from-taskweft" />
-  <project name="taskweft-grafcet-static" path="3-interactor/taskweft-grafcet-static" remote="v-sekai-fire" revision="main" />
-  <project name="taskweft-function-block-diagram" path="3-interactor/taskweft-function-block-diagram-compiler" remote="v-sekai-fire" revision="main" />
-  <project name="taskweft-fbd-teacher" path="3-interactor/taskweft-function-block-diagram-teacher" remote="v-sekai-fire" revision="main" />
-  <project name="taskweft-nmm-personas" path="3-interactor/taskweft-nmm-personas" remote="v-sekai-fire" revision="main" />
-  <project name="taskweft-godot-sandbox" path="3-interactor/taskweft-godot-sandbox" remote="v-sekai-fire" revision="main" />
-  <project name="interactor-pixal3d-image-to-textured-mesh" path="3-interactor/pixal3d-image-to-textured-mesh" remote="v-sekai-fire" revision="main" />
-  <project name="interactor-pixal3d-image-mesh-painting" path="3-interactor/pixal3d-image-mesh-painting" remote="v-sekai-fire" revision="main" />
-  <project name="interactor-qwen35-defiant" path="3-interactor/qwen35-defiant" remote="v-sekai-fire" revision="main" />
-  <project name="residual-fsq-recommender" path="3-interactor/residual-fsq-recommender" remote="v-sekai-fire" revision="main" />
-  <project name="trellis2-ex" path="3-interactor/trellis2-ex" remote="v-sekai-fire" revision="main" />
-  <project name="interactor-trellis2-image-mesh-painting" path="3-interactor/trellis2-image-mesh-painting" remote="v-sekai-fire" revision="main" />
-  <project name="interactor-trellis2-image-to-textured-mesh" path="3-interactor/trellis2-image-to-textured-mesh" remote="v-sekai-fire" revision="main" />
+  <project name="taskweft-grafcet-static" path="3-interactor/taskweft-grafcet-static" remote="v-sekai-fire" revision="main/main" />
+  <project name="taskweft-function-block-diagram" path="3-interactor/taskweft-function-block-diagram-compiler" remote="v-sekai-fire" revision="main/main" />
+  <project name="taskweft-fbd-teacher" path="3-interactor/taskweft-function-block-diagram-teacher" remote="v-sekai-fire" revision="main/main" />
+  <project name="taskweft-nmm-personas" path="3-interactor/taskweft-nmm-personas" remote="v-sekai-fire" revision="main/main" />
+  <project name="taskweft-godot-sandbox" path="3-interactor/taskweft-godot-sandbox" remote="v-sekai-fire" revision="main/main" />
+  <project name="interactor-pixal3d-image-to-textured-mesh" path="3-interactor/pixal3d-image-to-textured-mesh" remote="v-sekai-fire" revision="main/main" />
+  <project name="interactor-pixal3d-image-mesh-painting" path="3-interactor/pixal3d-image-mesh-painting" remote="v-sekai-fire" revision="main/main" />
+  <project name="interactor-qwen35-defiant" path="3-interactor/qwen35-defiant" remote="v-sekai-fire" revision="main/main" />
+  <project name="residual-fsq-recommender" path="3-interactor/residual-fsq-recommender" remote="v-sekai-fire" revision="main/main" />
+  <project name="trellis2-ex" path="3-interactor/trellis2-ex" remote="v-sekai-fire" revision="main/main" />
+  <project name="interactor-trellis2-image-mesh-painting" path="3-interactor/trellis2-image-mesh-painting" remote="v-sekai-fire" revision="main/main" />
+  <project name="interactor-trellis2-image-to-textured-mesh" path="3-interactor/trellis2-image-to-textured-mesh" remote="v-sekai-fire" revision="main/main" />
   <project name="stable-diffusion.cpp" path="3-interactor/stable-diffusion.cpp" remote="v-sekai-fire" revision="main/main" />
-  <project name="pixal3d.cpp" path="3-interactor/pixal3d.cpp" remote="v-sekai-fire" revision="main" />
-  <project name="kimodo.cpp" path="3-interactor/kimodo.cpp" remote="v-sekai-fire" revision="main" />
+  <project name="pixal3d.cpp" path="3-interactor/pixal3d.cpp" remote="v-sekai-fire" revision="main/main" />
+  <project name="kimodo.cpp" path="3-interactor/kimodo.cpp" remote="v-sekai-fire" revision="main/main" />
   <project name="thorvg" path="2-contract/thorvg" remote="thorvg"
            revision="d114cd9e3c32d7f77bc9b324ae5c71d7775cb7ae" />
   <project name="ggml" path="2-contract/ggml" remote="v-sekai-fire" revision="main/consolidated" />
-  <project name="ufbx-to-openusd" path="3-interactor/ufbx-to-openusd" remote="v-sekai-fire" revision="main" />
-  <project name="unified-modal-embedder" path="3-interactor/unified-modal-embedder" remote="v-sekai-fire" revision="main" />
-  <project name="interactor-voxhammer-image-mesh-editing" path="3-interactor/voxhammer-image-mesh-editing" remote="v-sekai-fire" revision="main" />
+  <project name="ufbx-to-openusd" path="3-interactor/ufbx-to-openusd" remote="v-sekai-fire" revision="main/main" />
+  <project name="unified-modal-embedder" path="3-interactor/unified-modal-embedder" remote="v-sekai-fire" revision="main/main" />
+  <project name="interactor-voxhammer-image-mesh-editing" path="3-interactor/voxhammer-image-mesh-editing" remote="v-sekai-fire" revision="main/main" />
   <project name="VoxHammer" path="3-interactor/voxhammer-upstream" remote="v-sekai-fire" revision="cb049b4c4b0b9a76b44b996bb5ba31ef70b796bf" />
   <project name="Wan2.1" path="3-interactor/wan-vace-upstream" remote="v-sekai-fire" revision="9737cba9c1c3c4d04b33fcad41c111989865d315" />
   <project name="Pixal3D" path="3-interactor/pixal3d-upstream" remote="v-sekai-fire" revision="cdbb2bbffbf4e6f298b5f2af3d1d76a8d823d2af" />
@@ -90,15 +90,15 @@
   <project name="udon2godot" path="3-interactor/udon2godot" remote="v-sekai-fire" revision="ddea6b8214fc85611b2304d093696d08291ed4b4" />
   <project name="TRELLIS.2" path="3-interactor/trellis2-upstream" remote="v-sekai-fire" revision="75fbf0183001ed9876c8dbb35de6b68552ee08bd" />
   <project name="llama-cpp-npu-vision" path="3-interactor/llama-cpp-npu-vision-upstream" remote="v-sekai-fire" revision="d75e441df25d7b783fda089755de8101ed1b9426" />
-  <project name="interactor-voxhammer-text-mesh-editing" path="3-interactor/voxhammer-text-mesh-editing" remote="v-sekai-fire" revision="main" />
-  <project name="editscore-lora-qwen3vl-4b" path="3-interactor/editscore-lora-qwen3vl-4b" remote="v-sekai-fire" revision="main" />
-  <project name="godot-soma-twist" path="4-entities/godot-soma-twist" remote="v-sekai-fire" revision="main" />
-  <project name="entities-assembly" path="4-entities/entities-assembly" remote="v-sekai-fire" revision="main" />
-  <project name="anny-pose-retarget-work" path="4-entities/anny-pose-retarget-work" remote="v-sekai-fire" revision="main" />
-  <project name="gnm-anny-headfit" path="4-entities/gnm-anny-headfit" remote="v-sekai-fire" revision="main" />
-  <project name="elixir-holographic-reduced-representation" path="4-entities/elixir-holographic-reduced-representation" remote="v-sekai-fire" revision="main" />
-  <project name="entities-humanoid-rom" path="4-entities/humanoid-rom" remote="v-sekai-fire" revision="main" />
-  <project name="request-for-discussion" path="2-contract/manuals-weftspun" remote="v-sekai-fire" revision="main">
+  <project name="interactor-voxhammer-text-mesh-editing" path="3-interactor/voxhammer-text-mesh-editing" remote="v-sekai-fire" revision="main/main" />
+  <project name="editscore-lora-qwen3vl-4b" path="3-interactor/editscore-lora-qwen3vl-4b" remote="v-sekai-fire" revision="main/main" />
+  <project name="godot-soma-twist" path="4-entities/godot-soma-twist" remote="v-sekai-fire" revision="main/main" />
+  <project name="entities-assembly" path="4-entities/entities-assembly" remote="v-sekai-fire" revision="main/main" />
+  <project name="anny-pose-retarget-work" path="4-entities/anny-pose-retarget-work" remote="v-sekai-fire" revision="main/main" />
+  <project name="gnm-anny-headfit" path="4-entities/gnm-anny-headfit" remote="v-sekai-fire" revision="main/main" />
+  <project name="elixir-holographic-reduced-representation" path="4-entities/elixir-holographic-reduced-representation" remote="v-sekai-fire" revision="main/main" />
+  <project name="entities-humanoid-rom" path="4-entities/humanoid-rom" remote="v-sekai-fire" revision="main/main" />
+  <project name="request-for-discussion" path="2-contract/manuals-weftspun" remote="v-sekai-fire" revision="main/main">
     <linkfile src="CITATION.cff" dest="CITATION.cff" />
     <linkfile src="apparatus/1143-keypoints-to-anny/fourloops-plan.usda" dest="2-contract/manuals-weftspun/fourloops-plan.usda" />
     <linkfile src="apparatus/1143-keypoints-to-anny/fourloops-plan.usda" dest="2-contract/manuals-weftspun/rfd/1144-image-to-omnigen2/fourloops-plan.usda" />
@@ -112,32 +112,32 @@
     <linkfile src="rfd/2172-tenseless-continuous-present-voice/README.md" dest=".claude/skills/rfd-2172-tenseless-continuous-present-voice.md" />
     <linkfile src="rfd/2177-flight-levels-taxonomy/README.md" dest=".claude/skills/rfd-2177-flight-levels-taxonomy.md" />
   </project>
-  <project name="plausible-witness-dag" path="2-contract/plausible-witness-dag" remote="v-sekai-fire" revision="main" />
-  <project name="lean-deform-exact" path="2-contract/lean-deform-exact" remote="v-sekai-fire" revision="main" />
-  <project name="tensor-copy-cost-model" path="2-contract/tensor-copy-cost-model" remote="v-sekai-fire" revision="main" />
-  <project name="trellis2-mesh-vae-slang" path="2-contract/trellis2-mesh-vae-slang" remote="v-sekai-fire" revision="main" />
-  <project name="weftspun-character-taxonomy" path="2-contract/weftspun-character-taxonomy" remote="v-sekai-fire" revision="main" />
-  <project name=".github" path=".github" remote="v-sekai-fire" revision="main" />
-  <project name="dot-claude" path=".claude" remote="v-sekai-fire" revision="main" />
+  <project name="plausible-witness-dag" path="2-contract/plausible-witness-dag" remote="v-sekai-fire" revision="main/main" />
+  <project name="lean-deform-exact" path="2-contract/lean-deform-exact" remote="v-sekai-fire" revision="main/main" />
+  <project name="tensor-copy-cost-model" path="2-contract/tensor-copy-cost-model" remote="v-sekai-fire" revision="main/main" />
+  <project name="trellis2-mesh-vae-slang" path="2-contract/trellis2-mesh-vae-slang" remote="v-sekai-fire" revision="main/main" />
+  <project name="weftspun-character-taxonomy" path="2-contract/weftspun-character-taxonomy" remote="v-sekai-fire" revision="main/main" />
+  <project name=".github" path=".github" remote="v-sekai-fire" revision="main/main" />
+  <project name="dot-claude" path=".claude" remote="v-sekai-fire" revision="main/main" />
   <project name="hailo_model_zoo" path="5-repository/hailo-model-zoo" remote="v-sekai-fire" revision="refs/tags/keypoint/v0.1.0-dev.1" />
   <project name="chibifire/anny-camera-lora" path="5-repository/anny-camera-lora" remote="huggingface" revision="main" />
   <project name="chibifire/omnigen2-base-df5dca8a" path="5-repository/omnigen2-base-df5dca8a" remote="huggingface" revision="main" />
   <project name="LocalAI-io/MotionBricks-G1-GGML" path="5-repository/motionbricks-g1-ggml" remote="huggingface" revision="cc2a47603dbc203a4f18f35dd06ed3611833f506" />
-  <project name="anny-render-corpus" path="6-datasource/anny-render-corpus" remote="v-sekai-fire" revision="main" />
-  <project name="anny-soma-corpus" path="6-datasource/anny-soma-corpus" remote="v-sekai-fire" revision="main" />
-  <project name="versitygw-local" path="6-datasource/versitygw-local" remote="v-sekai-fire" revision="main" />
-  <project name="rf-detr-keypoint-data" path="6-datasource/rf-detr-keypoint-data" remote="v-sekai-fire" revision="main" />
-  <project name="rf-detr-segmentation-data" path="6-datasource/rf-detr-segmentation-data" remote="v-sekai-fire" revision="main" />
-  <project name="kenney-stage" path="6-datasource/kenney-stage" remote="v-sekai-fire" revision="main" />
-  <project name="quaternius-stage" path="6-datasource/quaternius-stage" remote="v-sekai-fire" revision="main" />
-  <project name="thebasemesh-stage" path="6-datasource/thebasemesh-stage" remote="v-sekai-fire" revision="main" />
-  <project name="coco-ood-eval" path="6-datasource/coco-ood-eval" remote="v-sekai-fire" revision="main" />
+  <project name="anny-render-corpus" path="6-datasource/anny-render-corpus" remote="v-sekai-fire" revision="main/main" />
+  <project name="anny-soma-corpus" path="6-datasource/anny-soma-corpus" remote="v-sekai-fire" revision="main/main" />
+  <project name="versitygw-local" path="6-datasource/versitygw-local" remote="v-sekai-fire" revision="main/main" />
+  <project name="rf-detr-keypoint-data" path="6-datasource/rf-detr-keypoint-data" remote="v-sekai-fire" revision="main/main" />
+  <project name="rf-detr-segmentation-data" path="6-datasource/rf-detr-segmentation-data" remote="v-sekai-fire" revision="main/main" />
+  <project name="kenney-stage" path="6-datasource/kenney-stage" remote="v-sekai-fire" revision="main/main" />
+  <project name="quaternius-stage" path="6-datasource/quaternius-stage" remote="v-sekai-fire" revision="main/main" />
+  <project name="thebasemesh-stage" path="6-datasource/thebasemesh-stage" remote="v-sekai-fire" revision="main/main" />
+  <project name="coco-ood-eval" path="6-datasource/coco-ood-eval" remote="v-sekai-fire" revision="main/main" />
   <project name="CCTV" path="6-datasource/cctv" remote="c2sp" revision="main" />
   <project name="desync" path="6-datasource/desync" remote="v-sekai-fire" revision="main/main" />
   <project name="casync" path="6-datasource/casync" remote="systemd" revision="main" />
-  <project name="SK_VRM1_Constraint_Twist_Sample" path="6-datasource/sk-vrm1-constraint-twist-sample" remote="v-sekai-fire" revision="main" />
-  <project name="datasource-foundationdb" path="6-datasource/foundationdb" remote="v-sekai-fire" revision="main" />
-  <project name="datasource-store" path="6-datasource/store" remote="v-sekai-fire" revision="main">
+  <project name="SK_VRM1_Constraint_Twist_Sample" path="6-datasource/sk-vrm1-constraint-twist-sample" remote="v-sekai-fire" revision="main/main" />
+  <project name="datasource-foundationdb" path="6-datasource/foundationdb" remote="v-sekai-fire" revision="main/main" />
+  <project name="datasource-store" path="6-datasource/store" remote="v-sekai-fire" revision="main/main">
     <linkfile src="fdb_vfs.c"
               dest="7-service/service-bao-sqlite-fdb/thirdparty/store/fdb_vfs.c" />
     <linkfile src="fdb_keys.h"
@@ -152,11 +152,11 @@
   <project name="chibifire/zenodo-second-hand-fashion-v3" path="6-datasource/zenodo-second-hand-fashion-v3" remote="huggingface-datasets" revision="main" />
   <project name="chibifire/starforged-std-3001-appendix-e" path="6-datasource/starforged-std-3001-appendix-e" remote="huggingface-datasets" revision="main" />
   <project name="chibifire/anny-dress-on-stage-train" path="6-datasource/anny-dress-on-stage-train" remote="huggingface-datasets" revision="main" />
-  <project name="weft-warp-burrito" path="7-service/weft-warp-burrito" remote="v-sekai-fire" revision="main" />
-  <project name="service-cineform" path="7-service/service-cineform" remote="v-sekai-fire" revision="main" />
-  <project name="service-livebook" path="7-service/service-livebook" remote="v-sekai-fire" revision="main" />
-  <project name="service-godot-build" path="7-service/service-godot-build" remote="v-sekai-fire" revision="main" />
-  <project name="service-bao-sqlite-fdb" path="7-service/service-bao-sqlite-fdb" remote="v-sekai-fire" revision="main" />
+  <project name="weft-warp-burrito" path="7-service/weft-warp-burrito" remote="v-sekai-fire" revision="main/main" />
+  <project name="service-cineform" path="7-service/service-cineform" remote="v-sekai-fire" revision="main/main" />
+  <project name="service-livebook" path="7-service/service-livebook" remote="v-sekai-fire" revision="main/main" />
+  <project name="service-godot-build" path="7-service/service-godot-build" remote="v-sekai-fire" revision="main/main" />
+  <project name="service-bao-sqlite-fdb" path="7-service/service-bao-sqlite-fdb" remote="v-sekai-fire" revision="main/main" />
 
   <project name="iceoryx2" path="7-service/service-cineform/thirdparty/iceoryx2"
            remote="v-sekai-fire" revision="a1909f56e30c16b1492e829313389b9439811323" />
@@ -179,7 +179,7 @@
   <project name="sd-libwebp" path="3-interactor/stable-diffusion.cpp/thirdparty/libwebp" remote="v-sekai-fire" revision="0c9546f7efc61eac7f79ae115c3f99c91c21c443" />
   <project name="sd-libwebm" path="3-interactor/stable-diffusion.cpp/thirdparty/libwebm" remote="v-sekai-fire" revision="5bf12267eea773a32fcf4949de52b0add158a8d5" />
 
-  <project name="weftspun-keypoint" path="2-contract/weftspun-keypoint" remote="v-sekai-fire" revision="main">
+  <project name="weftspun-keypoint" path="2-contract/weftspun-keypoint" remote="v-sekai-fire" revision="main/main">
     <linkfile src="bootstrap.sh" dest="bootstrap.sh" />
     <linkfile src="bootstrap.ps1" dest="bootstrap.ps1" />
     <linkfile src="install.sh" dest="install.sh" />
