@@ -36,7 +36,7 @@
   <project name="skin-tokens.cpp" path="3-interactor/skin-tokens-cpp" remote="v-sekai-fire" revision="main" />
   <project name="CoACD" path="3-interactor/coacd-upstream" remote="SarahWeiii" revision="1401ce2a7ae1ed89c65ab958b48d489350c233c7" />
   <project name="motion-bricks.cpp" path="3-interactor/motion-bricks-cpp" remote="v-sekai-fire" revision="main" />
-  <project name="entities-godot" path="4-entities/entities-godot" remote="v-sekai-fire" revision="feat/ci-ar-response-file" />
+  <project name="entities-godot" path="4-entities/entities-godot" remote="v-sekai-fire" revision="dev/fabric-0.1.0" />
   <project name="turboquant-godot" path="3-interactor/turboquant-godot" remote="v-sekai-fire" revision="feat/turboquant-on-master" />
   <project name="interactor-cineform" path="3-interactor/interactor-cineform" remote="v-sekai-fire" revision="main" />
   <project name="datasource-flow" path="3-interactor/datasource-flow" remote="v-sekai-fire" revision="main-fabric" />
