@@ -51,7 +51,7 @@ try {
     $env:PATH = "$bin;$env:PATH"
 
     # 3. The manifest, over git, which is what makes the pins trustworthy.
-    python (Join-Path $bin 'repo') init -u $manifest -b $branch
+    python (Join-Path $bin 'repo') init --no-repo-verify -u $manifest -b $branch
 
     # 4. The CDN copy against the git copy. A difference means the pins that chose the
     #    launcher in step 2 were not the pins this repository holds.
