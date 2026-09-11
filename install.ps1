@@ -5,12 +5,12 @@
 # Runs in the current directory, which becomes the repo client root.
 $ErrorActionPreference = 'Stop'
 
-$raw = if ($env:WEFTSPUN_RAW) { $env:WEFTSPUN_RAW } else { 'https://raw.githubusercontent.com/V-Sekai-fire/manifest-weftspun/main/main' }
-$manifest = if ($env:WEFTSPUN_MANIFEST) { $env:WEFTSPUN_MANIFEST } else { 'https://github.com/V-Sekai-fire/manifest-weftspun.git' }
-$branch = if ($env:WEFTSPUN_BRANCH) { $env:WEFTSPUN_BRANCH } else { 'main/main' }
-$bin = if ($env:LOCAL_BIN) { $env:LOCAL_BIN } else { Join-Path $HOME '.local\bin' }
+$raw = $(if ($env:WEFTSPUN_RAW) { $env:WEFTSPUN_RAW } else { 'https://raw.githubusercontent.com/V-Sekai-fire/manifest-weftspun/main/main' })
+$manifest = $(if ($env:WEFTSPUN_MANIFEST) { $env:WEFTSPUN_MANIFEST } else { 'https://github.com/V-Sekai-fire/manifest-weftspun.git' })
+$branch = $(if ($env:WEFTSPUN_BRANCH) { $env:WEFTSPUN_BRANCH } else { 'main/main' })
+$bin = $(if ($env:LOCAL_BIN) { $env:LOCAL_BIN } else { Join-Path $HOME '.local\bin' })
 
-$pixiHome = if ($env:PIXI_HOME) { $env:PIXI_HOME } else { Join-Path $HOME '.pixi' }
+$pixiHome = $(if ($env:PIXI_HOME) { $env:PIXI_HOME } else { Join-Path $HOME '.pixi' })
 $pixiBin = Join-Path $pixiHome 'bin'
 
 $work = Join-Path ([System.IO.Path]::GetTempPath()) ([System.IO.Path]::GetRandomFileName())
@@ -24,10 +24,13 @@ try {
     $repoSource = ""
     $repoSha = ""
     Get-Content $pins | ForEach-Object {
-        $parts = $_ -split '\s+'
-        if ($parts.Count -ge 3 -and $parts[0] -eq 'repo') {
-            if ($parts[1] -eq 'source') { $repoSource = $parts[2] }
-            if ($parts[1] -eq 'sha256') { $repoSha = "$($parts[2])".Trim().ToLowerInvariant() }
+        $line = [string]$_
+        if (-not [string]::IsNullOrWhiteSpace($line)) {
+            $parts = $line -split '\s+'
+            if ($parts.Count -ge 3 -and $parts[0] -eq 'repo') {
+                if ($parts[1] -eq 'source') { $repoSource = [string]$parts[2] }
+                if ($parts[1] -eq 'sha256') { $repoSha = ([string]$parts[2]).Trim().ToLowerInvariant() }
+            }
         }
     }
 
