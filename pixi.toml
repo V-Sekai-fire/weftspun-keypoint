@@ -19,6 +19,16 @@ clangxx = "==22.1.5"
 ninja = "*"
 cmake = ">=3.28"
 
+[feature.web.activation]
+scripts = ["7-service/emsdk/emsdk_env.sh"]
+
+[feature.web.target.win-64.activation]
+scripts = ["7-service/emsdk/emsdk_env.bat"]
+
 [environments]
 gate = ["gate"]
 build = ["build"]
+web = ["build", "web"]
+
+[tasks]
+emsdk-install = "python 7-service/emsdk/emsdk.py install 6.0.9 && python 7-service/emsdk/emsdk.py activate 6.0.9"
