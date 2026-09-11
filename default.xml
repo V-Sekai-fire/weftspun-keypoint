@@ -58,7 +58,6 @@
   <project name="interactor-anny" path="3-interactor/anny" remote="v-sekai-fire" revision="main/main" />
   <project name="interactor-soma-x" path="3-interactor/soma-x" remote="v-sekai-fire" revision="main/main" />
   <project name="bumblebee" path="3-interactor/bumblebee" remote="v-sekai-fire" revision="main/main" />
-  <project name="interactor-gemma4-composer" path="3-interactor/gemma4-composer" remote="v-sekai-fire" revision="main/main" />
   <project name="multimodal-semantic-ids" path="3-interactor/multimodal-semantic-ids" remote="v-sekai-fire" revision="main/main" />
   <project name="nx-ggml" path="3-interactor/nx-ggml" remote="v-sekai-fire" revision="main/main" />
   <project name="interactor-taskweft" path="3-interactor/taskweft" remote="v-sekai-fire" revision="main/from-taskweft" />
@@ -69,7 +68,6 @@
   <project name="taskweft-godot-sandbox" path="3-interactor/taskweft-godot-sandbox" remote="v-sekai-fire" revision="main/main" />
   <project name="interactor-pixal3d-image-to-textured-mesh" path="3-interactor/pixal3d-image-to-textured-mesh" remote="v-sekai-fire" revision="main/main" />
   <project name="interactor-pixal3d-image-mesh-painting" path="3-interactor/pixal3d-image-mesh-painting" remote="v-sekai-fire" revision="main/main" />
-  <project name="interactor-qwen35-defiant" path="3-interactor/qwen35-defiant" remote="v-sekai-fire" revision="main/main" />
   <project name="residual-fsq-recommender" path="3-interactor/residual-fsq-recommender" remote="v-sekai-fire" revision="main/main" />
   <project name="trellis2-ex" path="3-interactor/trellis2-ex" remote="v-sekai-fire" revision="main/main" />
   <project name="interactor-trellis2-image-mesh-painting" path="3-interactor/trellis2-image-mesh-painting" remote="v-sekai-fire" revision="main/main" />
@@ -93,11 +91,8 @@
   <project name="llama-cpp-npu-vision" path="3-interactor/llama-cpp-npu-vision-upstream" remote="v-sekai-fire" revision="d75e441df25d7b783fda089755de8101ed1b9426" />
   <project name="interactor-voxhammer-text-mesh-editing" path="3-interactor/voxhammer-text-mesh-editing" remote="v-sekai-fire" revision="main/main" />
   <project name="editscore-lora-qwen3vl-4b" path="3-interactor/editscore-lora-qwen3vl-4b" remote="v-sekai-fire" revision="main/main" />
-  <project name="godot-soma-twist" path="4-entities/godot-soma-twist" remote="v-sekai-fire" revision="main/main" />
   <project name="godot-demo-projects" path="4-entities/godot-demo-projects" remote="v-sekai-fire" revision="master" />
   <project name="entities-assembly" path="4-entities/entities-assembly" remote="v-sekai-fire" revision="main/main" />
-  <project name="anny-pose-retarget-work" path="4-entities/anny-pose-retarget-work" remote="v-sekai-fire" revision="main/main" />
-  <project name="gnm-anny-headfit" path="4-entities/gnm-anny-headfit" remote="v-sekai-fire" revision="main/main" />
   <project name="elixir-holographic-reduced-representation" path="4-entities/elixir-holographic-reduced-representation" remote="v-sekai-fire" revision="main/main" />
   <project name="entities-humanoid-rom" path="4-entities/humanoid-rom" remote="v-sekai-fire" revision="main/main" />
   <project name="request-for-discussion" path="2-contract/manuals-weftspun" remote="v-sekai-fire" revision="main/main">
