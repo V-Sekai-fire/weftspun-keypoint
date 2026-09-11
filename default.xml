@@ -27,7 +27,7 @@
   <project name="elixir-libgodot-connector" path="1-transport/elixir-libgodot-connector" remote="v-sekai-fire" revision="main/main" />
   <project name="hm08-partition" path="2-contract/hm08-partition" remote="v-sekai-fire" revision="main/main" />
   <project name="anny-keypoint-anchors" path="2-contract/anny-keypoint-anchors" remote="v-sekai-fire" revision="main/main" />
-  <project name="manuals" path="2-contract/manuals-vsk" remote="v-sekai" revision="main/main" />
+  <project name="multiplayer-fabric-manuals" path="2-contract/manuals-vsk" remote="v-sekai-fire" revision="main" />
   <project name="swing-twist-kusudama" path="2-contract/swing-twist-kusudama" remote="v-sekai-fire" revision="main/main" />
   <project name="contract-bus" path="2-contract/bus" remote="v-sekai-fire" revision="main/main" />
   <project name="QCBOR" path="2-contract/bus/libs/qcbor" remote="laurencelundblade" revision="refs/tags/v1.6.1" />
@@ -49,8 +49,8 @@
   <project name="interactor-omnigen2" path="3-interactor/omnigen2" remote="v-sekai-fire" revision="main/main" />
   <project name="interactor-editscore" path="3-interactor/editscore" remote="v-sekai-fire" revision="main/main" />
   <project name="tropes-removal-model" path="3-interactor/tropes-removal-model" remote="v-sekai-fire" revision="main/main" />
-  <project name="solve" path="3-interactor/sinew-solve" remote="sinew-mocap" revision="main/main" />
-  <project name="mount-drift" path="3-interactor/sinew-mount-drift" remote="sinew-mocap" revision="main/main" />
+  <project name="solve" path="3-interactor/sinew-solve" remote="v-sekai-fire" revision="main/main" />
+  <project name="mount-drift" path="3-interactor/sinew-mount-drift" remote="v-sekai-fire" revision="main/main" />
   <project name="interactor-physics" path="3-interactor/physics" remote="v-sekai-fire" revision="main/main" />
   <project name="interactor-motion" path="3-interactor/motion" remote="v-sekai-fire" revision="main/main" />
   <project name="interactor-mujoco-mjx" path="3-interactor/mujoco-mjx" remote="v-sekai-fire" revision="main/main" />
@@ -122,8 +122,8 @@
   <project name="dot-claude" path=".claude" remote="v-sekai-fire" revision="main/main" />
   <project name="hailo_model_zoo" path="5-repository/hailo-model-zoo" remote="v-sekai-fire" revision="refs/tags/keypoint/v0.1.0-dev.1" />
   <project name="witness-cpp" path="5-repository/witness-cpp" remote="v-sekai-fire" revision="main/main" />
-  <project name="chibifire/anny-camera-lora" path="5-repository/anny-camera-lora" remote="huggingface" revision="main/main" />
-  <project name="chibifire/omnigen2-base-df5dca8a" path="5-repository/omnigen2-base-df5dca8a" remote="huggingface" revision="main/main" />
+  <project name="chibifire/anny-camera-lora" path="5-repository/anny-camera-lora" remote="huggingface" revision="main" />
+  <project name="chibifire/omnigen2-base-df5dca8a" path="5-repository/omnigen2-base-df5dca8a" remote="huggingface" revision="main" />
   <project name="LocalAI-io/MotionBricks-G1-GGML" path="5-repository/motionbricks-g1-ggml" remote="huggingface" revision="cc2a47603dbc203a4f18f35dd06ed3611833f506" />
   <project name="anny-render-corpus" path="6-datasource/anny-render-corpus" remote="v-sekai-fire" revision="main/main" />
   <project name="anny-soma-corpus" path="6-datasource/anny-soma-corpus" remote="v-sekai-fire" revision="main/main" />
@@ -134,9 +134,9 @@
   <project name="quaternius-stage" path="6-datasource/quaternius-stage" remote="v-sekai-fire" revision="main/main" />
   <project name="thebasemesh-stage" path="6-datasource/thebasemesh-stage" remote="v-sekai-fire" revision="main/main" />
   <project name="coco-ood-eval" path="6-datasource/coco-ood-eval" remote="v-sekai-fire" revision="main/main" />
-  <project name="CCTV" path="6-datasource/cctv" remote="c2sp" revision="main/main" />
+  <project name="CCTV" path="6-datasource/cctv" remote="v-sekai-fire" revision="main/main" />
   <project name="desync" path="6-datasource/desync" remote="v-sekai-fire" revision="main/main" />
-  <project name="casync" path="6-datasource/casync" remote="systemd" revision="main/main" />
+  <project name="casync" path="6-datasource/casync" remote="v-sekai-fire" revision="main/main" />
   <project name="SK_VRM1_Constraint_Twist_Sample" path="6-datasource/sk-vrm1-constraint-twist-sample" remote="v-sekai-fire" revision="main/main" />
   <project name="datasource-foundationdb" path="6-datasource/foundationdb" remote="v-sekai-fire" revision="main/main" />
   <project name="datasource-store" path="6-datasource/store" remote="v-sekai-fire" revision="main/main">
@@ -149,11 +149,11 @@
     <linkfile src="fdb_keys.h"
               dest="1-transport/transport-taskweft-acp/thirdparty/store/fdb_keys.h" />
   </project>
-  <project name="chibifire/anny-render-corpus-train" path="6-datasource/anny-render-corpus-constructed" remote="huggingface-datasets" revision="main/main" />
-  <project name="chibifire/anny-render-corpus-generated-train" path="6-datasource/anny-render-corpus-generated" remote="huggingface-datasets" revision="main/main" />
-  <project name="chibifire/zenodo-second-hand-fashion-v3" path="6-datasource/zenodo-second-hand-fashion-v3" remote="huggingface-datasets" revision="main/main" />
-  <project name="chibifire/starforged-std-3001-appendix-e" path="6-datasource/starforged-std-3001-appendix-e" remote="huggingface-datasets" revision="main/main" />
-  <project name="chibifire/anny-dress-on-stage-train" path="6-datasource/anny-dress-on-stage-train" remote="huggingface-datasets" revision="main/main" />
+  <project name="chibifire/anny-render-corpus-train" path="6-datasource/anny-render-corpus-constructed" remote="huggingface-datasets" revision="main" />
+  <project name="chibifire/anny-render-corpus-generated-train" path="6-datasource/anny-render-corpus-generated" remote="huggingface-datasets" revision="main" />
+  <project name="chibifire/zenodo-second-hand-fashion-v3" path="6-datasource/zenodo-second-hand-fashion-v3" remote="huggingface-datasets" revision="main" />
+  <project name="chibifire/starforged-std-3001-appendix-e" path="6-datasource/starforged-std-3001-appendix-e" remote="huggingface-datasets" revision="main" />
+  <project name="chibifire/anny-dress-on-stage-train" path="6-datasource/anny-dress-on-stage-train" remote="huggingface-datasets" revision="main" />
   <project name="weft-warp-burrito" path="7-service/weft-warp-burrito" remote="v-sekai-fire" revision="main/main" />
   <project name="service-cineform" path="7-service/service-cineform" remote="v-sekai-fire" revision="main/main" />
   <project name="service-livebook" path="7-service/service-livebook" remote="v-sekai-fire" revision="main/main" />
