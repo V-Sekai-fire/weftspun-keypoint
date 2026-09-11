@@ -1,85 +1,67 @@
-# One step from a bare machine to a synced, tooled workspace, on Windows:
-#
-#   irm https://raw.githubusercontent.com/V-Sekai-fire/manifest-weftspun/main/main/bootstrap.ps1 | iex
-#
-# Runs in the current directory, which becomes the repo client root.
+# Installs the pinned repo launcher and the pinned pixi into ~\.local\bin and
+# ~\.pixi\bin on Windows. Run it after `repo init`, from any directory.
 $ErrorActionPreference = 'Stop'
 
-$raw = $(if ($env:WEFTSPUN_RAW) { $env:WEFTSPUN_RAW } else { 'https://raw.githubusercontent.com/V-Sekai-fire/manifest-weftspun/main/main' })
-$manifest = $(if ($env:WEFTSPUN_MANIFEST) { $env:WEFTSPUN_MANIFEST } else { 'https://github.com/V-Sekai-fire/manifest-weftspun.git' })
-$branch = $(if ($env:WEFTSPUN_BRANCH) { $env:WEFTSPUN_BRANCH } else { 'main/main' })
-$bin = $(if ($env:LOCAL_BIN) { $env:LOCAL_BIN } else { Join-Path $HOME '.local\bin' })
+$here = Split-Path -Parent $MyInvocation.MyCommand.Path
+$pins = Join-Path $here 'bootstrap-pins.txt'
+$bin = if ($env:LOCAL_BIN) { $env:LOCAL_BIN } else { Join-Path $HOME '.local\bin' }
+$pixiRoot = if ($env:PIXI_HOME) { $env:PIXI_HOME } else { Join-Path $HOME '.pixi' }
+$pixiBin = Join-Path $pixiRoot 'bin'
 
-$pixiHome = $(if ($env:PIXI_HOME) { $env:PIXI_HOME } else { Join-Path $HOME '.pixi' })
-$pixiBin = Join-Path $pixiHome 'bin'
+$rows = Get-Content $pins | ForEach-Object { , ($_ -split '\s+') }
+function Pin($tool, $key) { ($rows | Where-Object { $_[0] -eq $tool -and $_[1] -eq $key })[0][2] }
+function ShaOf($path) { (Get-FileHash -Algorithm SHA256 $path).Hash.ToLowerInvariant() }
 
 $work = Join-Path ([System.IO.Path]::GetTempPath()) ([System.IO.Path]::GetRandomFileName())
 New-Item -ItemType Directory -Path $work | Out-Null
-
 try {
-    # 1. The pins, over the CDN, which is the one fetch nothing on disk can vouch for yet.
-    $pins = Join-Path $work 'pins'
-    Invoke-WebRequest -UseBasicParsing -Uri "$raw/bootstrap-pins.txt" -OutFile $pins
-    
-    $repoSource = ""
-    $repoSha = ""
-    Get-Content $pins | ForEach-Object {
-        $line = [string]$_
-        if (-not [string]::IsNullOrWhiteSpace($line)) {
-            $parts = $line -split '\s+'
-            if ($parts.Count -ge 3 -and $parts[0] -eq 'repo') {
-                if ($parts[1] -eq 'source') { $repoSource = [string]$parts[2] }
-                if ($parts[1] -eq 'sha256') { $repoSha = ([string]$parts[2]).Trim().ToLowerInvariant() }
-            }
-        }
-    }
+  # repo first. The pins live in the manifest repository, which only exists once
+  # repo has fetched it, so the launcher that did the fetching is checked here
+  # against the pin rather than before it -- the one link no pin can cover.
+  $repoVersion = Pin 'repo' 'version'
+  $repoSource = Pin 'repo' 'source'
+  $repoSha = Pin 'repo' 'sha256'
+  $staged = Join-Path $work 'repo'
+  Invoke-WebRequest -UseBasicParsing -Uri $repoSource -OutFile $staged
+  $got = ShaOf $staged
+  if ($got -ne $repoSha) { throw "checksum mismatch for the repo launcher: got $got, pinned $repoSha" }
 
-    # 2. The pinned repo launcher.
-    $staged = Join-Path $work 'repo'
-    Invoke-WebRequest -UseBasicParsing -Uri $repoSource -OutFile $staged
-    $got = (Get-FileHash -Algorithm SHA256 $staged).Hash.ToLowerInvariant()
-    if ($got -ne $repoSha) { 
-        throw "checksum mismatch for the repo launcher: got $got, pinned $repoSha" 
-    }
-    New-Item -ItemType Directory -Path $bin -Force | Out-Null
-    
-    $repoDest = Join-Path $bin 'repo'
-    if (Test-Path $repoDest) {
-        Remove-Item -Path $repoDest -Force
-    }
-    Move-Item -Path $staged -Destination $repoDest -Force
-    $env:PATH = "$bin;$env:PATH"
+  $existing = (Get-Command repo -ErrorAction SilentlyContinue).Source
+  if ($existing -and (ShaOf $existing) -ne $repoSha) {
+    Write-Warning "$existing is not the pinned launcher $repoVersion; $bin\repo will be"
+  }
+  New-Item -ItemType Directory -Path $bin -Force | Out-Null
+  Move-Item -Path $staged -Destination (Join-Path $bin 'repo') -Force
+  Write-Output "repo launcher $repoVersion installed to $bin\repo (it needs python3 on PATH)"
 
-    # 3. The manifest, over git, which is what makes the pins trustworthy.
-    python (Join-Path $bin 'repo') init -u $manifest -b $branch
+  # pixi second, because nothing above it needs pixi and the manifest that pins
+  # it is already on disk by now.
+  $want = switch ($env:PROCESSOR_ARCHITECTURE) {
+    'AMD64' { 'win-64' }
+    'ARM64' { 'win-arm64' }
+    default { throw "no bootstrap row for $($env:PROCESSOR_ARCHITECTURE); add one to bootstrap-pins.txt" }
+  }
 
-    # 4. The CDN copy against the git copy. A difference means the pins that chose the
-    #    launcher in step 2 were not the pins this repository holds.
-    $manifestPins = Join-Path (Get-Location) '.repo\manifests\bootstrap-pins.txt'
-    if (-not (Test-Path $manifestPins)) {
-        throw "Manifest file not found at $manifestPins"
-    }
-    
-    $onDisk = (Get-FileHash -Algorithm SHA256 $manifestPins).Hash.ToLowerInvariant()
-    $pinsHash = (Get-FileHash -Algorithm SHA256 $pins).Hash.ToLowerInvariant()
-    if ($pinsHash -ne $onDisk) {
-        throw "the pins served by $raw differ from the ones in the manifest repository"
-    }
+  $pixiVersion = Pin 'pixi' 'version'
+  $pixiSource = Pin 'pixi' 'source'
+  $row = $rows | Where-Object { $_[0] -eq 'pixi' -and $_[1] -eq 'platform' -and $_[2] -eq $want } | Select-Object -First 1
+  if ($null -eq $row -or $row.Count -lt 6) { throw "bootstrap-pins.txt has no complete pixi row for $want" }
+  $asset = $row[3]; $sha = $row[4]; $member = $row[5]
 
-    # 5. pixi, from the pins now on disk, then the whole workspace.
-    $installScript = Join-Path (Get-Location) '.repo\manifests\install.ps1'
-    & powershell -ExecutionPolicy Bypass -File $installScript
-    
-    python (Join-Path $bin 'repo') sync
-    $env:PATH = "$pixiBin;$env:PATH"
-    
-    $pixiExe = Join-Path $pixiBin 'pixi.exe'
-    $pixiManifest = Join-Path (Get-Location) '.repo\manifests\pixi.toml'
-    & $pixiExe install --manifest-path $pixiManifest --all
+  $exe = Join-Path $pixiBin 'pixi.exe'
+  if ((Test-Path $exe) -and ((& $exe --version) -eq "pixi $pixiVersion")) {
+    Write-Output "pixi $pixiVersion already at $exe"
+    exit 0
+  }
 
-    Write-Output ''
-    Write-Output "Workspace ready. Add these to PATH: $bin $pixiBin"
+  $archive = Join-Path $work $asset
+  Invoke-WebRequest -UseBasicParsing -Uri "$pixiSource$asset" -OutFile $archive
+  $got = ShaOf $archive
+  if ($got -ne $sha) { throw "checksum mismatch for ${asset}: got $got, pinned $sha" }
+
+  Expand-Archive -Path $archive -DestinationPath $work -Force
+  New-Item -ItemType Directory -Path $pixiBin -Force | Out-Null
+  Move-Item -Path (Join-Path $work $member) -Destination $exe -Force
+  Write-Output "pixi $pixiVersion installed to $exe; put $bin and $pixiBin on PATH"
 }
-finally { 
-    Remove-Item -Recurse -Force $work 
-}
+finally { Remove-Item -Recurse -Force $work }
