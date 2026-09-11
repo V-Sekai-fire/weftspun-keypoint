@@ -1,14 +1,14 @@
-#!/bin/sh
+﻿#!/bin/sh
 # One step from a bare machine to a synced, tooled workspace, on Linux and macOS:
 #
-#   curl -fsSL https://raw.githubusercontent.com/V-Sekai-fire/manifest-weftspun/main/main/bootstrap.sh | sh
+#   curl -fsSL https://raw.githubusercontent.com/V-Sekai-fire/manifest-weftspun/main/bootstrap.sh | sh
 #
 # Runs in the current directory, which becomes the repo client root.
 set -eu
 
-raw=${WEFTSPUN_RAW:-https://raw.githubusercontent.com/V-Sekai-fire/manifest-weftspun/main/main}
+raw=${WEFTSPUN_RAW:-https://raw.githubusercontent.com/V-Sekai-fire/manifest-weftspun/main}
 manifest=${WEFTSPUN_MANIFEST:-https://github.com/V-Sekai-fire/manifest-weftspun.git}
-branch=${WEFTSPUN_BRANCH:-main/main}
+branch=${WEFTSPUN_BRANCH:-main}
 bin="${LOCAL_BIN:-$HOME/.local/bin}"
 pixi_bin="${PIXI_HOME:-$HOME/.pixi}/bin"
 
@@ -56,3 +56,4 @@ pixi install --manifest-path .repo/manifests/pixi.toml --all
 
 echo
 echo "Workspace ready. Add these to PATH: $bin $pixi_bin"
+

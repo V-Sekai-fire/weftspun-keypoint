@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: Apache-2.0 OR MIT
+﻿# SPDX-License-Identifier: Apache-2.0 OR MIT
 #
 # Both gates fail the check run. Neither warns.
 #
@@ -22,7 +22,7 @@ on:
     # is most often fixed by editing it rather than by pushing a commit.
     types: [opened, edited, synchronize, reopened]
   push:
-    branches: [main/main]
+    branches: [main]
 
 jobs:
   pr-description:
@@ -146,3 +146,4 @@ jobs:
         run: elixir check_manifest_dupes.exs --self-test
       - name: the manifest carries one project per interface
         run: elixir check_manifest_dupes.exs --manifest default.xml
+
