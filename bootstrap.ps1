@@ -52,7 +52,7 @@ try {
 
     # 3. The manifest, over git, which is what makes the pins trustworthy.
     # Added --no-repo-verify to bypass Windows GPG keyring errors
-    python (Join-Path $bin 'repo') init --no-repo-verify -u $manifest -b $branch
+    python (Join-Path $bin 'repo') init --repo-url=https://gerrit.googlesource.com/git-repo --no-repo-verify -u $manifest -b $branch
 
     # 4. The CDN copy against the git copy. A difference means the pins that chose the
     #    launcher in step 2 were not the pins this repository holds.
