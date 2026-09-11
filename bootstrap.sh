@@ -1,4 +1,4 @@
-﻿#!/bin/sh
+#!/bin/sh
 # One step from a bare machine to a synced, tooled workspace, on Linux and macOS:
 #
 #   curl -fsSL https://raw.githubusercontent.com/V-Sekai-fire/manifest-weftspun/main/bootstrap.sh | sh

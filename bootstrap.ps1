@@ -1,4 +1,4 @@
-﻿# One step from a bare machine to a synced, tooled workspace, on Windows:
+# One step from a bare machine to a synced, tooled workspace, on Windows:
 #
 #   irm https://raw.githubusercontent.com/V-Sekai-fire/manifest-weftspun/main/bootstrap.ps1 | iex
 #

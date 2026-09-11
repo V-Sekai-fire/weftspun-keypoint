@@ -1,4 +1,4 @@
-﻿```
+```
 # POSIX Shell
 curl -fsSL https://raw.githubusercontent.com/V-Sekai-fire/manifest-weftspun/main/bootstrap.sh | sh
 # Windows Powershell

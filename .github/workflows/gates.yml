@@ -1,4 +1,4 @@
-﻿# SPDX-License-Identifier: Apache-2.0 OR MIT
+# SPDX-License-Identifier: Apache-2.0 OR MIT
 #
 # Both gates fail the check run. Neither warns.
 #
