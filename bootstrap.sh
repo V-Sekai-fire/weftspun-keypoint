@@ -38,7 +38,10 @@ PATH="$bin:$PATH"
 export PATH
 
 # 3. The manifest, over git, which is what makes the pins trustworthy.
-repo init -u "$manifest" -b "$branch"
+#    The heavy Hugging Face projects are git-lfs, and repo leaves LFS content as
+#    pointer files unless --git-lfs asked for it, so the default sync is metadata
+#    only; set WEFTSPUN_GIT_LFS=1 to pull the blobs too, tens of gigabytes of them.
+repo init ${WEFTSPUN_GIT_LFS:+--git-lfs} -u "$manifest" -b "$branch"
 
 # 4. The CDN copy against the git copy. A difference means the pins that chose the
 #    launcher in step 2 were not the pins this repository holds.

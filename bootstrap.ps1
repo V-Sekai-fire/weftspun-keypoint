@@ -13,6 +13,24 @@ $bin = $(if ($env:LOCAL_BIN) { $env:LOCAL_BIN } else { Join-Path $HOME '.local\b
 $pixiHome = $(if ($env:PIXI_HOME) { $env:PIXI_HOME } else { Join-Path $HOME '.pixi' })
 $pixiBin = Join-Path $pixiHome 'bin'
 
+# The heavy Hugging Face projects are git-lfs. repo leaves LFS content as pointer
+# files unless `repo init --git-lfs` asked for it, so the default sync is metadata
+# only; set WEFTSPUN_GIT_LFS=1 to pull the blobs too, which is tens of gigabytes.
+# Assigned in two statements, not a $() subexpression: that unrolls a one-element
+# array back to a bare string, and splatting a string spells it out one character
+# per argument -- the same trap the pins parser in install.ps1 documents.
+$gitLfs = @()
+if ($env:WEFTSPUN_GIT_LFS) { $gitLfs = @('--git-lfs') }
+
+# $ErrorActionPreference does not throw on a child process that exits non-zero, so
+# every external call below is checked. Without this a failed installer is silent
+# until pixi turns up missing two steps later.
+function Invoke-Checked {
+    param([string]$What, [scriptblock]$Command)
+    & $Command
+    if ($LASTEXITCODE -ne 0) { throw "$What failed with exit code $LASTEXITCODE" }
+}
+
 $work = Join-Path ([System.IO.Path]::GetTempPath()) ([System.IO.Path]::GetRandomFileName())
 New-Item -ItemType Directory -Path $work | Out-Null
 
@@ -52,7 +70,7 @@ try {
 
     # 3. The manifest, over git, which is what makes the pins trustworthy.
     # Added --no-repo-verify to bypass Windows GPG keyring errors
-    python (Join-Path $bin 'repo') init --repo-url=https://gerrit.googlesource.com/git-repo --no-repo-verify -u $manifest -b $branch
+    Invoke-Checked 'repo init' { python (Join-Path $bin 'repo') init --repo-url=https://gerrit.googlesource.com/git-repo --no-repo-verify @gitLfs -u $manifest -b $branch }
 
     # 4. The CDN copy against the git copy. A difference means the pins that chose the
     #    launcher in step 2 were not the pins this repository holds.
@@ -71,14 +89,14 @@ try {
 
     # 5. pixi, from the pins now on disk, then the whole workspace.
     $installScript = Join-Path (Get-Location) '.repo\manifests\install.ps1'
-    & powershell -ExecutionPolicy Bypass -File $installScript
-    
-    python (Join-Path $bin 'repo') sync
+    Invoke-Checked 'install.ps1' { & powershell -ExecutionPolicy Bypass -File $installScript }
+
+    Invoke-Checked 'repo sync' { python (Join-Path $bin 'repo') sync }
     $env:PATH = "$pixiBin;$env:PATH"
     
     $pixiExe = Join-Path $pixiBin 'pixi.exe'
     $pixiManifest = Join-Path (Get-Location) '.repo\manifests\pixi.toml'
-    & $pixiExe install --manifest-path $pixiManifest --all
+    Invoke-Checked 'pixi install' { & $pixiExe install --manifest-path $pixiManifest --all }
 
     Write-Output ''
     Write-Output "Workspace ready. Add these to PATH: $bin $pixiBin"

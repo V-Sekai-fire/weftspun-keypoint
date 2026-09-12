@@ -34,9 +34,12 @@ try {
   $got = ShaOf $staged
   if ($got -ne $repoSha) { throw "checksum mismatch for the repo launcher: got $got, pinned $repoSha" }
 
-  $existing = (Get-Command repo -ErrorAction SilentlyContinue).Source
-  if ($existing -and (ShaOf $existing) -ne $repoSha) {
-    Write-Warning "$existing is not the pinned launcher $repoVersion; $bin\repo will be"
+  # The launcher itself, not whatever PATHEXT resolves first: on Windows a `repo.cmd`
+  # wrapper sits beside it and hashes differently by construction, so Get-Command here
+  # made this warning fire on every run while never comparing the file being replaced.
+  $existing = Join-Path $bin 'repo'
+  if ((Test-Path $existing) -and (ShaOf $existing) -ne $repoSha) {
+    Write-Warning "$existing is not the pinned launcher $repoVersion; replacing it"
   }
   New-Item -ItemType Directory -Path $bin -Force | Out-Null
   Move-Item -Path $staged -Destination (Join-Path $bin 'repo') -Force
