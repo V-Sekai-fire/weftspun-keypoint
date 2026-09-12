@@ -22,6 +22,7 @@
   <project name="transport-cineform-tui" path="1-transport/transport-cineform-tui" remote="v-sekai-fire" revision="main/main" />
   <project name="transport-shepherd" path="1-transport/transport-shepherd" remote="v-sekai-fire" revision="main/main" />
   <project name="ex_mcp" path="1-transport/ex-mcp" remote="v-sekai-fire" revision="main/main" />
+  <project name="rf-detr-mcp" path="1-transport/rf-detr-mcp" remote="v-sekai-fire" revision="main" />
   <project name="transport-taskweft-acp" path="1-transport/transport-taskweft-acp" remote="v-sekai-fire" revision="main/main" />
   <project name="usd-viewer" path="1-transport/usd-viewer" remote="v-sekai-fire" revision="main/main" />
   <project name="weftspun-usd-viewer" path="1-transport/weftspun-usd-viewer" remote="v-sekai-fire" revision="main/main" />
