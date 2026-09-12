@@ -61,9 +61,11 @@ try {
         throw "Manifest file not found at $manifestPins"
     }
     
-    $onDisk = (Get-FileHash -Algorithm SHA256 $manifestPins).Hash.ToLowerInvariant()
-    $pinsHash = (Get-FileHash -Algorithm SHA256 $pins).Hash.ToLowerInvariant()
-    if ($pinsHash -ne $onDisk) {
+    #    Compared as text with line endings normalized: git checks the file out with CRLF
+    #    wherever core.autocrlf is on, and a byte compare against the CDN's LF copy then
+    #    reports a difference that is not one.
+    $normalize = { param($path) ((Get-Content -Raw $path) -replace "`r`n", "`n") }
+    if ((& $normalize $pins) -ne (& $normalize $manifestPins)) {
         throw "the pins served by $raw differ from the ones in the manifest repository"
     }
 

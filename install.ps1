@@ -8,8 +8,16 @@ $bin = if ($env:LOCAL_BIN) { $env:LOCAL_BIN } else { Join-Path $HOME '.local\bin
 $pixiRoot = if ($env:PIXI_HOME) { $env:PIXI_HOME } else { Join-Path $HOME '.pixi' }
 $pixiBin = Join-Path $pixiRoot 'bin'
 
-$rows = Get-Content $pins | ForEach-Object { , ($_ -split '\s+') }
-function Pin($tool, $key) { ($rows | Where-Object { $_[0] -eq $tool -and $_[1] -eq $key })[0][2] }
+$rows = Get-Content $pins | ForEach-Object { , ($_.Trim() -split '\s+') }
+# Walked with foreach rather than Where-Object: a pipeline unrolls the single row it
+# matches back into its own fields, and the caller then indexes into a string -- which
+# is how `-Uri $repoSource` used to arrive as the character 'p'.
+function Pin($tool, $key) {
+  foreach ($r in $rows) {
+    if ($r.Count -ge 3 -and $r[0] -eq $tool -and $r[1] -eq $key) { return $r[2] }
+  }
+  throw "bootstrap-pins.txt has no '$tool $key' row"
+}
 function ShaOf($path) { (Get-FileHash -Algorithm SHA256 $path).Hash.ToLowerInvariant() }
 
 $work = Join-Path ([System.IO.Path]::GetTempPath()) ([System.IO.Path]::GetRandomFileName())
@@ -44,8 +52,11 @@ try {
 
   $pixiVersion = Pin 'pixi' 'version'
   $pixiSource = Pin 'pixi' 'source'
-  $row = $rows | Where-Object { $_[0] -eq 'pixi' -and $_[1] -eq 'platform' -and $_[2] -eq $want } | Select-Object -First 1
-  if ($null -eq $row -or $row.Count -lt 6) { throw "bootstrap-pins.txt has no complete pixi row for $want" }
+  $row = $null
+  foreach ($r in $rows) {
+    if ($r.Count -ge 6 -and $r[0] -eq 'pixi' -and $r[1] -eq 'platform' -and $r[2] -eq $want) { $row = $r; break }
+  }
+  if ($null -eq $row) { throw "bootstrap-pins.txt has no complete pixi row for $want" }
   $asset = $row[3]; $sha = $row[4]; $member = $row[5]
 
   $exe = Join-Path $pixiBin 'pixi.exe'
